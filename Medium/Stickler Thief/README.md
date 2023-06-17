@@ -1,0 +1,28 @@
+<h2><a href="https://practice.geeksforgeeks.org/problems/stickler-theif-1587115621/1">Stickler Thief</a></h2><h3>Difficulty Level : Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Stickler</span><span style="font-size:18px"> the thief wants to loot money from a society<strong> </strong>having<strong> n</strong> houses in a single line. He is a weird person and follows a certain <strong>rule </strong>when looting the houses. According to the rule, he will <strong>never loot two consecutive houses</strong>. At the same time, he wants to <strong>maximize </strong>the amount he <strong>loots</strong>. The thief knows which house has what amount of money but is unable to come up with an optimal looting strategy. He asks for your help to <strong>find the maximum money he can get</strong> if he strictly <strong>follows </strong>the <strong>rule</strong>. Each house has </span><strong><span style="font-size:18px">a[i]</span></strong><span style="font-size:18px"><strong>amount of money</strong> present in it.</span></p>
+
+<p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
+
+<div class="pieces-code-wrapper" style="text-align: left; margin-top: 10px;"><pre style="margin-bottom: 0px; margin-top: 0px;"><span style="font-size:18px"><strong>Input:
+</strong>n = 6
+a[] = {5,5,10,100,10,5}
+<strong>Output: </strong>110
+<strong>Explanation: </strong>5+100+5=110</span></pre><div class="pieces-btn-wrapper" style="border: none; display: flex; opacity: 0; width: auto; transition: opacity 0.3s ease-out 0s; height: 26px; margin-top: 10px; margin-bottom: 10px;"><button class="pieces-btn pieces-copy-and-save" style="width: auto; font-size: 12px; border: 1px solid rgb(33, 33, 33); border-radius: 16px; margin-right: 4px; padding: 4px 6px 4px 4px; line-height: normal; height: fit-content; cursor: pointer; user-select: none; display: flex; align-items: center; background-color: rgb(33, 33, 33); color: rgb(255, 255, 255);"><img src="https://storage.googleapis.com/pieces-web-extensions-cdn/pieces.png" class="pieces-logo" style="margin: 0px 4px 0px 0px; border-radius: 50%; filter: none; float: left; width: 16px; height: 16px;"><span class="pieces-btn-text">Copy and Save</span></button><button class="pieces-btn pieces-share" style="width: auto; font-size: 12px; border: 1px solid rgb(33, 33, 33); border-radius: 16px; margin-right: 4px; padding: 4px 6px 4px 4px; line-height: normal; height: fit-content; cursor: pointer; user-select: none; display: flex; align-items: center; background-color: rgb(33, 33, 33); color: rgb(255, 255, 255);"><img src="https://storage.googleapis.com/pieces-web-extensions-cdn/link.png" class="pieces-logo" style="margin: 0px 4px 0px 0px; border-radius: 50%; filter: none; float: left; width: 16px; height: 16px;"><span class="pieces-btn-text">Share</span></button></div></div>
+
+<p><span style="font-size:18px"><strong>Example 2:</strong></span></p>
+
+<div class="pieces-code-wrapper" style="text-align: left; margin-top: 10px;"><pre style="margin-bottom: 0px; margin-top: 0px;"><span style="font-size:18px"><strong>Input:
+</strong>n = 3
+a[] = {1,2,3}
+<strong>Output: </strong>4
+<strong>Explanation: </strong>1+3=4</span></pre><div class="pieces-btn-wrapper" style="border: none; display: flex; opacity: 0; width: auto; transition: opacity 0.3s ease-out 0s; height: 26px; margin-top: 10px; margin-bottom: 10px;"><button class="pieces-btn pieces-copy-and-save" style="width: auto; font-size: 12px; border: 1px solid rgb(33, 33, 33); border-radius: 16px; margin-right: 4px; padding: 4px 6px 4px 4px; line-height: normal; height: fit-content; cursor: pointer; user-select: none; display: flex; align-items: center; background-color: rgb(33, 33, 33); color: rgb(255, 255, 255);"><img src="https://storage.googleapis.com/pieces-web-extensions-cdn/pieces.png" class="pieces-logo" style="margin: 0px 4px 0px 0px; border-radius: 50%; filter: none; float: left; width: 16px; height: 16px;"><span class="pieces-btn-text">Copy and Save</span></button><button class="pieces-btn pieces-share" style="width: auto; font-size: 12px; border: 1px solid rgb(33, 33, 33); border-radius: 16px; margin-right: 4px; padding: 4px 6px 4px 4px; line-height: normal; height: fit-content; cursor: pointer; user-select: none; display: flex; align-items: center; background-color: rgb(33, 33, 33); color: rgb(255, 255, 255);"><img src="https://storage.googleapis.com/pieces-web-extensions-cdn/link.png" class="pieces-logo" style="margin: 0px 4px 0px 0px; border-radius: 50%; filter: none; float: left; width: 16px; height: 16px;"><span class="pieces-btn-text">Share</span></button></div></div>
+
+<p><span style="font-size:18px"><strong>Your Task:</strong><br>
+Complete the function<strong>FindMaxSum()</strong>which takes an array <strong>arr[]</strong> and <strong>n</strong> as input which returns the maximum money he can get following the rules</span></p>
+
+<p><span style="font-size:18px"><strong>Expected Time Complexity:</strong>O(N).<br>
+<strong>Expected Space Complexity:</strong>O(N).</span></p>
+
+<p><span style="font-size:18px"><strong>Constraints:</strong><br>
+1 ≤ n ≤ 10<sup>4</sup><br>
+1 ≤ a[i] ≤ 10<sup>4</sup></span></p>
+</div><p><span style=font-size:18px><strong>Company Tags : </strong><br><code>Paytm</code>&nbsp;<code>Flipkart</code>&nbsp;<code>Amazon</code>&nbsp;<code>OYO Rooms</code>&nbsp;<code>Walmart</code>&nbsp;<code>Google</code>&nbsp;<br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Arrays</code>&nbsp;<code>Dynamic Programming</code>&nbsp;<code>Data Structures</code>&nbsp;<code>Algorithms</code>&nbsp;
