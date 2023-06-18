@@ -8,9 +8,14 @@ using namespace std;
 // } Driver Code Ends
 // User function Template for C++
 
-int maxSweetness(vector<int>& sweetness, int N, int K) {
+class Solution{
+    public:
+    int maxSweetness(vector<int>& sweetness, int N, int K) {
     // Write your code here.
-    int l = 1, r = 1e9, ans = 0;
+    int l = *min_element(sweetness.begin(),sweetness.end()), ans=0;
+    int r;
+    for(int i=0;i<N;i++)
+        r += sweetness[i];
     while (l <= r) {
         // Computing middle index of current search interval
         int mid = (l + r) / 2;
@@ -27,14 +32,15 @@ int maxSweetness(vector<int>& sweetness, int N, int K) {
         if (pieces >= K + 1) {
             ans = mid;
             l = mid + 1;
-        } else {
+        } 
+        else
             r = mid - 1;
-        }
     }
 
     // Returning maximum sweetness
     return ans;
-}
+    }
+};
 
 
 //{ Driver Code Starts.
@@ -50,7 +56,9 @@ int main() {
         for (int i = 0; i < n; i++) {
             cin >> sweetness[i];
         }
-        cout << maxSweetness(sweetness, n, k) << endl;
+          Solution ob;
+          int res=ob.maxSweetness(sweetness, n, k);
+        cout << res << endl;
     }
 }
 // } Driver Code Ends
