@@ -15,6 +15,7 @@ struct Job
 
 // } Driver Code Ends
 /*
+
 struct Job 
 { 
     int id;	 // Job Id 
@@ -27,31 +28,30 @@ class Solution
 {
     public:
     static bool cmp(Job a,Job b){
-        return a.profit > b.profit;     //decreasing order ma profit 
+        return a.profit > b.profit;
     }
     //Function to find the maximum profit and the number of jobs done.
     vector<int> JobScheduling(Job arr[], int n) 
     { 
         // your code here
         sort(arr,arr+n,cmp);
-        int maxideadline = INT_MIN;
+        int maxdeadline = INT_MIN;
         for(int i=0;i<n;i++)
-            maxideadline = max(maxideadline,arr[i].dead);
-        vector<int>schedule(maxideadline+1,-1);
-        
+            maxdeadline = max(maxdeadline,arr[i].dead); 
+            
+        vector<int>schedule(maxdeadline+1,-1);
         int count=0;
         int maxProfit = 0;
         for(int i=0;i<n;i++){
             int currid = arr[i].id;
             int currdead = arr[i].dead;
-            int currprofit = arr[i].profit;
-            
-            for(int k = currdead;k>0;k--){
+            int currpro = arr[i].profit;
+            for(int k=currdead;k>0;k--){
                 if(schedule[k]==-1){
-                    count++;
-                    maxProfit +=currprofit;
-                    schedule[k] = currid;
-                    break;
+                   count++;
+                   maxProfit += currpro;
+                   schedule[k] = currid;
+                   break;
                 }
             }
         }
