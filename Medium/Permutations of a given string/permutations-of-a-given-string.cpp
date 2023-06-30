@@ -6,26 +6,17 @@ using namespace std;
 class Solution
 {
 	public:
-	    void BackTrackingSol(string &S, int i, vector<string> &ans)
-	    {   
-	        if(i>=S.length())
-	           ans.push_back(S);
-	        for(int j = i; j<S.length(); j++)
-	            {
-	               swap(S[i],S[j]);
-	               BackTrackingSol(S,i+1,ans);
-	               swap(S[i],S[j]);
-	            }
-	    }
-		vector<string>find_permutation(string S)
+	//prjjx is not working
+		vector<string>find_permutation(string s)
 		{
 		    // Code here there
-		  //  int index = 0;
-		    vector<string> v;
-		    BackTrackingSol(S,0,v);
-		    sort(v.begin(),v.end());
-            v.erase(unique(v.begin(), v.end()), v.end());
-		    return v;
+		    sort(s.begin(),s.end());
+            vector <string> v;
+            do{
+                v.push_back(s);
+            }
+            while(next_permutation(s.begin(),s.end()));
+        return v;
 		}
 };
 
