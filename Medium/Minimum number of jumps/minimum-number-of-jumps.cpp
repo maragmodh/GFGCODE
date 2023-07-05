@@ -10,26 +10,18 @@ class Solution{
   public:
     int minJumps(int arr[], int n){
         // Your code here
-        if(n<=1)
-            return 0;
-        if(arr[0]==0)
-            return -1;
-        int maxreach = arr[0];
-        int step = arr[0];
-        int jump = 1;
-        for(int i=1;i<n-1;i++){
-            if(i==n-1)
-                return jump;
-            maxreach = max(maxreach,i+arr[i]);
-            step--;
-            if(step==0){
-                jump++;
-                step = maxreach-i;
-                if(i>=maxreach)
-                    return -1;
+        int steps=0,jump=0,count=0;
+        for(int i=0;i<n-1;i++){
+            steps=max(steps,i+arr[i]);
+            if(i==jump){
+            count++;
+            jump=steps;
+            if(steps>=n-1)
+            return count;
+            
             }
         }
-        return jump;
+        return -1;
     }
 };
 
