@@ -14,37 +14,36 @@ class Solution
     //Function to find maximum of each subarray of size k.
     vector <int> max_of_subarrays(int *arr, int n, int k)
     {
-        // your code here
-        // vector<int>v;
-        // int j,max;
-        // for(int i=0;i<=n-k;i++)
-        // {
-        //   max=arr[i];
-        //   for(j=1;j<k;j++)
-        //   {
-        //       if(arr[i+j]>max)
-        //           max=arr[i+j];
-        //   }
-        //     v.push_back(max);
-        // }
-        // return v;
-        vector<int>ans;
-        deque<int>dq;
-        for(int i=0; i<k; i++){
-            while(!dq.empty() && dq.back()<arr[i])
-                dq.pop_back();
-            dq.push_back(arr[i]);
+         vector<int> result;
+         int maxIndex = 0;
+    
+    // Find the maximum element in the first window of size k
+        for(int i = 1; i < k; ++i) {
+            if (arr[i] > arr[maxIndex])
+                maxIndex = i;
         }
-        ans.push_back(dq.front());
-        for(int i=k; i<n; i++){
-            if(dq.front()==arr[i-k])
-                dq.pop_front();
-            while(!dq.empty() && dq.back()<arr[i])
-                dq.pop_back();
-            dq.push_back(arr[i]);
-            ans.push_back(dq.front());
+    
+    // Process each subsequent window
+        result.push_back(arr[maxIndex]);
+    
+    // Process each subsequent window
+    for (int i = k; i < n; ++i) {
+        // If the previous maximum is still within the current window, compare it with the new element
+        if (maxIndex >= i - k + 1 && arr[i] < arr[maxIndex]) {
+            result.push_back(arr[maxIndex]);
         }
-        return ans;
+        // Otherwise, find the maximum element in the current window
+        else {
+            maxIndex = i - k + 1;
+            for (int j = i - k + 2; j <= i; ++j) {
+                if (arr[j] > arr[maxIndex])
+                    maxIndex = j;
+            }
+            result.push_back(arr[maxIndex]);
+        }
+    }
+    
+    return result;
     }
 };
 
