@@ -9,27 +9,21 @@ using namespace std;
 
 class Solution{
 public:
-    string remo(string s){
-    string ans;
-    int n=s.size(),i=0;
-    while(i<n){
-        if(i<n-1 && s[i] == s[i+1]){
-            while(i<n-1 && s[i]==s[i+1]) i++;
-        }
-        else{
-            ans.push_back(s[i]);
-        }
-        i++;
-    }
-    return ans;
-}
     string rremove(string s){
-        string s1;
-        while(s.size()!=s1.size()){
-            s1=s;
-            s=remo(s);
-        }
-        return s;
+        // code here
+         string res="";
+         int n=s.size();
+         for(int i=0;i<s.size();i++){
+             if(s[i]==s[i+1] || s[i]==s[i-1]){
+                 continue;
+             else{
+                 res.push_back(s[i]);
+             }
+         }
+         if(res==s){
+             return res;
+         }
+         return rremove(res);
     }
 };
 
