@@ -25,9 +25,11 @@ class Solution {
         //int max = maxsumsubArray(arr[0], arr[0].length);
         int maxsum = INT_MIN;
         for(int i = 0;i<R;i++){
+    // Create a vector v to store the cumulative sum of elements in each column
             vector<int>v(C);
             for(int j=i;j<R;j++){
                 for(int k = 0;k<C;k++){
+        // Add the elements of the current row to the cumulative sum of each column
                     v[k]+=M[j][k];
                 }
                 int sum = kadane(v,C);
