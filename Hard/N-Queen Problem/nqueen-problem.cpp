@@ -39,7 +39,7 @@ public:
         }
         x = row;
         y = col;
-        //diagonal check
+        //diagonal check bottom-left to top-right
         while(x<n && y>=0){
             if(board[x][y]==1)
                 return false;
@@ -57,9 +57,11 @@ public:
         }
         
         // check for 1st case
+        // Recursive case: Try placing a queen in each row of the current column
         for(int row=0;row<n;row++){
             if(isSafe(row,col,board,n)){
                 board[row][col] = 1;
+                // Explore further by moving to the next column
                 solve(col+1,board,ans,n);
                 //backtrack
                 board[row][col] = 0;
