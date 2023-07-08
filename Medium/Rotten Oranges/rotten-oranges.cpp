@@ -6,15 +6,17 @@ using namespace std;
 class Solution 
 {
     public:
-    //Function to find minimum time required to rot all oranges. 
-    int orangesRotting(vector<vector<int>>& grid) {
+   int orangesRotting(vector<vector<int>>& grid) {
         // Code here
         int r=grid.size();
         int c=grid[0].size();
+        // Create a queue to store the coordinates of rotten oranges and their time
         queue<pair<pair<int,int>,int>>q; //{{r,c},t}
         int vis[r][c];
         for(int i=0;i<r;i++){
             for(int j=0;j<c;j++){
+            // If an orange is rotten, add its coordinates and time 0 to the queue
+            // Set the visited status of the cell to 2
                 if(grid[i][j]==2){
                     q.push({{i,j},0});
                     vis[i][j]=2;
@@ -23,15 +25,17 @@ class Solution
                     vis[i][j]=0;
             }
         }
-        int tm=-1;
+        int tm=-1;   //Maximum time to rot all oranges
         int drow[] = {-1,0,1,0};
         int dcol[] = {0,1,0,-1};
+        // Perform BFS until the queue is empty
         while(!q.empty()){
             int row = q.front().first.first;
             int col =  q.front().first.second;
             int t = q.front().second;
             tm=max(tm,t);
             q.pop();
+            // Check each neighbor in all four directions
             for(int i=0;i<4;i++){
                 int nrow = row +drow[i];
                 int ncol = col +dcol[i];
@@ -42,6 +46,8 @@ class Solution
                 }
             }
         }
+    // Check if there are any remaining fresh oranges (1) in the grid
+    // If so, return -1 to indicate that not all oranges can be rotten
         for(int i=0;i<r;i++){
             for(int j=0;j<c;j++){
                 if(vis[i][j]!=2 && grid[i][j]==1)
