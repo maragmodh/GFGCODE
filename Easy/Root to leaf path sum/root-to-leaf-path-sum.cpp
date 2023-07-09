@@ -89,25 +89,20 @@ complete this function */
 class Solution
 {
     public:
-     bool hasPathSum(Node*root , int s)
-    {
-        if(root == NULL)
-        {
-            return false;
-        }
+    bool hasPathSum(Node *root, int s) {
+    // Your code here
+    if(root == NULL)
+        return false;
         
-        s-=root->data;
-        if(root->left == NULL && root->right == NULL) 
-        {
-            if(s==0) return true;
-            return false;
-        }
-        
-        bool left = hasPathSum(root->left , s);
-        bool right = hasPathSum(root->right , s);
-        return left || right;
+    s = s - root->data;
+    if(root->left == NULL && root->right == NULL){
+        if(s==0) return true;
+        return false;
     }
-
+    bool left = hasPathSum(root->left,s);
+    bool right = hasPathSum(root->right,s);
+    return left || right;
+}
 };
 
 
