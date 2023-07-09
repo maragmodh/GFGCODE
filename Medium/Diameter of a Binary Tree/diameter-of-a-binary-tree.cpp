@@ -109,6 +109,10 @@ class Solution {
         // Your code here
         if(root==NULL)
             return 0;
+     // Calculate the diameter using three possible scenarios:
+    // 1. Diameter lies entirely in the left subtree
+    // 2. Diameter lies entirely in the right subtree
+    // 3. Diameter passes through the root node (height of left subtree + height of right subtree + 1)
         int left = diameter(root->left);
         int right = diameter(root->right);
         int op3 = height(root->left) + height(root->right)+1;
