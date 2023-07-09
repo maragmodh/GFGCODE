@@ -97,24 +97,33 @@ class Solution {
   public:
     vector <int> bottomView(Node *root) {
         // Your Code Here
-        vector<int>ans;
-        if(root==NULL)
-            return ans;
-        map<int,int>mp;
-        queue<pair<Node*,int>>q;
-        q.push({root,0});
-        while(!q.empty()){
-            Node* temp = q.front().first;
-            int vertical = q.front().second;
-            q.pop();
-            mp[vertical]=temp->data;
-            if(temp->left)
-                q.push({temp->left,vertical-1});
-            if(temp->right)
-                q.push({temp->right,vertical+1});
-        }
-        for(auto e:mp)
-            ans.push_back(e.second);
+        // Queue to perform level order traversal
+        vector<int> ans; 
+        if(root == NULL)
+            return ans;   
+        map<int, int> mp; 
+        queue<pair<Node*, int>> q;   
+// Push the root node with vertical line 0 into the queue
+        q.push({root, 0});
+
+    while (!q.empty()) {
+    // Get the node from the front of the queue
+        Node* temp = q.front().first;    
+    // Get the vertical line of the current node
+        int vertical = q.front().second; 
+        q.pop();
+    // Store the node's data in the map with its corresponding vertical line
+        mp[vertical] = temp->data; 
+
+    // Enqueue the left child with the decremented vertical line
+        if(temp->left)
+            q.push({temp->left, vertical - 1});
+    // Enqueue the right child with the incremented vertical line
+        if(temp->right)
+            q.push({temp->right, vertical + 1}); 
+}
+for (auto e : mp)
+    ans.push_back(e.second);
         return ans;
     }
 };
