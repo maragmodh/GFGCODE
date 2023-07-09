@@ -98,36 +98,35 @@ struct Node {
         left = right = NULL;
     }
 };*/
-
 class Solution{
     public:
-    int maxi=1;
-    bool bst(Node* root, int lo, int hi, int &h){
-        if(root==NULL)
-            return 1;
-        h++;
-        if(root->data<=lo || root->data>=hi)
-            return 0;
-      
-        return bst(root->left,lo,root->data,h) &&
-        bst(root->right,root->data,hi,h);
+    int maxi = 1;   // Variable to store the maximum size of a BST
+
+    bool bst(Node* root, int lo, int hi, int& h) {
+        if (root == NULL)
+            return true;
+    
+    h++;   // Increment the height of the current node
+    // Check if the current node violates the BST property
+    if (root->data <= lo || root->data >= hi)
+        return false;
+    // Recursively check the left and right subtrees
+    return bst(root->left, lo, root->data, h) &&
+           bst(root->right, root->data, hi, h);
+}
+int largestBst(Node* root) {
+    if (root == NULL)
+        return 0;
+    int h = 0;   // Variable to store the height of a potential BST
+    // Check if the tree rooted at 'root' is a valid BST
+    if (root && bst(root, INT_MIN, INT_MAX, h))
+        maxi = max(maxi, h);   // Update the maximum size if a BST is found
+    else {
+        largestBst(root->left);   // Recursively check the left subtree
+        largestBst(root->right);  // Recursively check the right subtree
     }
-    /*You are required to complete this method */
-    // Return the size of the largest sub-tree which is also a BST
-    int largestBst(Node *root)
-    {
-    	//Your code here
-    	 if(root==NULL)
-            return 0;
-        int h=0;
-        if(root && bst(root,INT_MIN,INT_MAX,h))
-        maxi = max(maxi,h);
-        else{
-            largestBst(root->left);
-            largestBst(root->right);
-        }
-        return maxi;
-    }
+    return maxi;   // Return the maximum size of a BST
+}
 };
 
 //{ Driver Code Starts.
