@@ -3,8 +3,6 @@
 using namespace std;
 
 // } Driver Code Ends
-
-// #include<istream>
 class Solution {
 public:
     void bst(vector<int>&ans,vector<int>v,int i,int j){
@@ -21,19 +19,6 @@ public:
         vector<int>ans;
         bst(ans,nums,0,nums.size()-1);
         return ans;
-    //  void solve(vector<int>&ans,vector<int>v,int s,int e)
-    // {
-    //     if(s>e)
-    //         return;
-    //     int mid=(s+e)/2;
-    //     ans.push_back(v[mid]);
-    //     solve(ans,v,s,mid-1);
-    //     solve(ans,v,mid+1,e);
-    // }
-    // vector<int> sortedArrayToBST(vector<int>& nums) {
-    //     vector<int>ans;
-    //     solve(ans,nums,0,nums.size()-1);
-    //     return ans;
     }
 };
 
