@@ -8,48 +8,33 @@ class Solution{
 	public:
 	vector<int> downwardDiagonal(int N, vector<vector<int>> A)
 	{
-	    vector<int>v;
-	for(int col=0,row = 0; col<N; col++)
- {
-     int i=row;
-     int j=col;
-     while(j >=0 && i < N)
-
-     {
-
-         v.push_back(A[i][j]);
-
-         i++;
-
-         j--;
-
-     }
-
- }
-
- for(int row=1,col=N-1; row<N; row++)
-
- {
-
-     int i=row;
-
-     int j=col;
-
-     while(j >=0 && i < N)
-
-     {
-
-         v.push_back(A[i][j]);
-
-         i++;
-
-         j--;
-
-     }
-
- }
-    return v;
-	}
+	 vector<int>a;
+        int n = A.size();
+        int row=0,col=0;
+        while(col<n){
+            int r=row;
+            int c=col;
+            while(r<n and c>=0){
+                a.push_back(A[r][c]);
+                r++;
+                c--;
+            }
+            col++;
+        }
+        col--;
+        row=1;
+        while(row<n){
+            int r=row;
+            int c=col;
+            while(r<n and c>=0){
+                a.push_back(A[r][c]);
+                r++;
+                c--;
+            }
+            row++;
+        }
+        return a;
+    }
 
 };
 
