@@ -114,9 +114,7 @@ class Solution {
         // code here
     if(root)
        {
-           Node *temp=root->left;
-           root->left=root->right;
-           root->right=temp;
+           swap(root->left,root->right);
            
          mirror(root->left);
          mirror(root->right);
