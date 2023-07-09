@@ -138,7 +138,7 @@ public:
             righttraverse(root->right,ans);
         else
             righttraverse(root->left,ans);
-        ans.push_back(root->data);
+        ans.push_back(root->data);   // because reverse of right boundary nodes
     }
     vector <int> boundary(Node *root)
     {
