@@ -131,30 +131,10 @@ struct Node
 vector<int> leftView(Node *root)
 {
    // Your code here
-   // darek horizontal line no first element print krvano
-    // vector<int>ans;
-    // if(root==NULL)  return ans;
-    // map<int,int>mp;
-    // queue<pair<Node*,int>>q;
-    // q.push({root,0});
-    // while(!q.empty()){
-    //      Node* temp = q.front().first;
-    //      int horizontal = q.front().second;
-    //      q.pop();
-    //      if(mp.find(horizontal)==mp.end()){
-    //          mp[horizontal]=1;
-    //          ans.push_back(temp->data);
-    //         }
-    //      if(root->left)
-    //         q.push({root->left,horizontal+1});
-    //      if(root->right)
-    //         q.push({root->right,horizontal+1});
-    // }
-    //  return ans;
     map<int,int>mp;
-     vector<int>ans;
-    queue<pair<Node *,int>>q;
-    q.push({root,0});
+    vector<int>ans;
+    queue<pair<Node *,int>>q; //Queue to perform level order traversal
+    q.push({root,0}); // Push the root node with level 0 into the queue
     if(root==NULL) return ans;
     while(!q.empty())
     {
@@ -163,19 +143,15 @@ vector<int> leftView(Node *root)
         q.pop();
         if(mp.find(level)==mp.end())  // adding every first node of level that is our left view of tree 
         {
-            mp[level]=1;
-            ans.push_back(node->data);
+        // Add the level to the map if it's encountered for the first time
+        mp[level]=1;
+        // Add the first node encountered at this level to the answer vector
+        ans.push_back(node->data); 
         }
         if(node->left)
-        {
             q.push({node->left,level+1});
-        }
         if(node->right)
-        {
             q.push({node->right,level+1});
-        }
-        
     }
     return ans;
 }
-
