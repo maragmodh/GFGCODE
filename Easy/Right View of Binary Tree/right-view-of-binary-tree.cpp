@@ -43,9 +43,8 @@ class Solution
     //Function to return list containing elements of right view of binary tree.
     vector<int> rightView(Node *root)
     {
-       // Your Code here
-       map<int,int>mp;
-     vector<int>ans;
+    map<int,int>mp;
+    vector<int>ans;
     queue<pair<Node *,int>>q;
     q.push({root,0});
     if(root==NULL) return ans;
@@ -56,19 +55,15 @@ class Solution
         q.pop();
         if(mp.find(level)==mp.end())  // adding every first node of level that is our left view of tree 
         {
-            mp[level]=1;
-            ans.push_back(node->data);
+        // Add the level to the map if it's encountered for the first time
+        mp[level]=1;
+        // Add the first node encountered at this level to the answer vector
+        ans.push_back(node->data); 
         }
-        
         if(node->right)
-        {
             q.push({node->right,level+1});
-        }
         if(node->left)
-        {
             q.push({node->left,level+1});
-        }
-        
     }
     return ans;
     }
