@@ -6,13 +6,17 @@ using namespace std;
 class Solution {
   public:
     // Function to detect cycle in an undirected graph.
+    // we use dfs
     bool solve(int snode,int prnt,vector<int>&vis,vector<int>adj[]){
         vis[snode]=1;
+        // visit adjacent nodes
         for(auto it : adj[snode]){
+             // unvisited adjacent node
             if(!vis[it]){
                 if(solve(it,snode,vis,adj))
                     return true;
             }
+            // visited node but not a parent node
             else if(it!=prnt)
                 return true;
         }
