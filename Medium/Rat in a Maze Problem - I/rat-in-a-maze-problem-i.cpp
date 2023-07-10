@@ -23,10 +23,12 @@ class Solution{
     void solve(int x,int y,vector<string>&ans,vector<vector<int>> &m, int n,vector<vector<bool>>&vis,string path){
         if(x==n-1&&y==n-1)
         {
-            ans.push_back(path);
+            ans.push_back(path);  // Reached the destination, add the path to the result
             return;
         }
-        vis[x][y] = 1;
+        vis[x][y] = 1; // Mark the current cell as visited
+
+    // Explore the adjacent cells in all four directions
         
         if(isSafe(vis,m,n,x+1,y))
         solve(x+1,y,ans,m,n,vis,path+'D');
@@ -40,16 +42,16 @@ class Solution{
         if(isSafe(vis,m,n,x,y-1))
         solve(x,y-1,ans,m,n,vis,path+'L');
         
-        vis[x][y] = 0;
+        vis[x][y] = 0; // Mark the current cell as unvisited (backtrack)
     }
     vector<string> findPath(vector<vector<int>> &m, int n) {
         // Your code goes here
-        vector<string>ans;
+        vector<string>ans;   // Vector to store the result paths
         vector<vector<bool>>visited(n,vector<bool>(n,0));
         string path = "";
         if(m[0][0]==0)
             return ans;
-        solve(0,0,ans,m,n,visited,path);
+        solve(0,0,ans,m,n,visited,path); // Call the solve function to find all possible paths
     }
 };
 
