@@ -18,8 +18,8 @@ class Solution{
         }
         int res=toh(N-1,from,aux,to);
         cout<<"move disk "<<N<<" from rod "<<from<<" to rod "<<to<<endl;
-        res+=toh(N-1,aux,to,from);
-        return res+1;
+        int res1 = toh(N-1,aux,to,from);
+        return res+1+res1;
     }
 
 };
