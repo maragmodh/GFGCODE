@@ -6,32 +6,33 @@ using namespace std;
 class Solution{
   public:
 /*You are required to complete this method*/
-    int LOL(int n,int m,string& p,string& s,vector<vector<int>>& dp){
-        if(n<0 && m<0) return 1;
-        if(n<0 && m>=0) return 0;
-        if(n>=0 && m<0){
-            for(int i=0;i<=n;i++){
-                if(p[i]!='*') 
+    int solvemem(string& pat,string &str,int i,int j,vector<vector<int>>&dp)
+    {
+        if(i<0 && j<0)
+            return 1;
+        if(i>=0 && j<0)
+            return 0;
+        if(i<0 && j>=0){
+            for(int k=0;k<=j;k++){
+                if(pat[k] !='*')
                     return 0;
             }
             return 1;
         }
-        if(dp[n][m]!=-1)
-            return dp[n][m];
-        if(p[n]==s[m] || p[n]=='?') 
-            return dp[n][m]=LOL(n-1,m-1,p,s,dp);
-        else if(p[n]=='*')
-            return dp[n][m]=LOL(n-1,m,p,s,dp)|LOL(n,m-1,p,s,dp);
-            
-        return dp[n][m]=0;
-
+        if(dp[i][j] != -1)
+            return dp[i][j];
+        if(str[i]==pat[j] || pat[j] == '?')
+            return dp[i][j] = solvemem(pat,str,i-1,j-1,dp);
+        else if(pat[j] == '*')
+            return dp[i][j] = (solvemem(pat,str,i-1,j,dp) | solvemem(pat,str,i,j-1,dp));
+        
+        else
+            return dp[i][j]=0;
     }
-    int wildCard(string pattern,string str)
+    int wildCard(string pat,string str)
     {
-        int n=pattern.size(); int m=str.size();
-        vector<vector<int>>dp(n+1,vector<int>(m+1,-1));
-        return LOL(n-1,m-1,pattern,str,dp);
-
+        vector<vector<int>>dp(str.length(),vector<int>(pat.length(),-1));
+        return solvemem(pat,str,str.length()-1,pat.length()-1,dp);
     }
 };
 
