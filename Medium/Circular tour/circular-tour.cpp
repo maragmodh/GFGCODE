@@ -27,23 +27,21 @@ class Solution{
     int tour(petrolPump p[],int n)
     {
        //Your code here
-       int start =0;
-       int balance =0 ; //jo tel bach gya hai
-       int deficiet = 0; // poora tour marne me kitna kmpdega mtlb ki agr distance jyada 
-        // aur given petrol km hoto utna exttra petrol require hoga n ... to wo poora ho payega ki nhi
-       for(int i=0;i<n;i++){
-           balance += p[i].petrol - p[i].distance;
-           if(balance<0){
-               deficiet+=balance;
-               start = i+1;
-               balance =0;
-           }
-       }
-       if(balance + deficiet >0){
-           return start;
-       }
-       else
-       return -1;
+       int ans=0;
+        int sum=0;
+        for(int i=0;i<n;i++){
+            if(p[i].distance>sum+p[i].petrol){
+                sum=0;
+                ans=i+1;
+            }
+            else
+                sum+=p[i].petrol-p[i].distance;
+        }
+        for(int i=0;i<ans;i++)
+            sum+=p[i].petrol-p[i].distance;
+        if(sum>=0)
+            return ans;
+        return -1;
     }
 };
 
