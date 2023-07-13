@@ -6,27 +6,28 @@ using namespace std;
 // } Driver Code Ends
 class Solution
 {
- public:
+    public:
     //Function to find a continuous sub-array which adds up to a given number.
     vector<int> subarraySum(vector<int>arr, int n, long long s)
     {
+        // Your code here
         if(s==0) return {-1};
         int i=0,j=0;
         long long sum=0;
         while (j<=n)
         {
-            
             if(sum==s) return {i+1,j};
             else if(sum>s){
-                sum-=arr[i++];
+                sum-=arr[i];
+                i++;
             }
-            else sum+=arr[j++];
+            else{ sum+=arr[j];
+            j++;
+        }
         }
         return {-1};
     }
 };
-
-
 
 //{ Driver Code Starts.
 
