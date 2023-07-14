@@ -12,37 +12,38 @@ class Solution
 {
   public:
     //Function to find maximum of each subarray of size k.
-    vector <int> max_of_subarrays(int *arr, int n, int k)
+    vector <int> max_of_subarrays(int *arr, int n, int K)
     {
-         vector<int> result;
-         int maxIndex = 0;
-    
-    // Find the maximum element in the first window of size k
-        for(int i = 1; i < k; ++i) {
-            if (arr[i] > arr[maxIndex])
-                maxIndex = i;
+        vector<int> result;
+        deque<int> dq; // Using a double-ended queue to keep track of the maximum element in the current window
+
+    // Process the first K elements separately to initialize the deque
+    for (int i = 0; i < K; i++) {
+        while (!dq.empty() && arr[i] >= arr[dq.back()]) {
+            dq.pop_back();
         }
-    
-    // Process each subsequent window
-        result.push_back(arr[maxIndex]);
-    
-    // Process each subsequent window
-    for (int i = k; i < n; ++i) {
-        // If the previous maximum is still within the current window, compare it with the new element
-        if (maxIndex >= i - k + 1 && arr[i] < arr[maxIndex]) {
-            result.push_back(arr[maxIndex]);
-        }
-        // Otherwise, find the maximum element in the current window
-        else {
-            maxIndex = i - k + 1;
-            for (int j = i - k + 2; j <= i; ++j) {
-                if (arr[j] > arr[maxIndex])
-                    maxIndex = j;
-            }
-            result.push_back(arr[maxIndex]);
-        }
+        dq.push_back(i);
     }
-    
+    // Process the remaining elements
+    for (int i = K; i < n; i++) {
+        // The front of the deque contains the maximum element for the current window
+        result.push_back(arr[dq.front()]); 
+        
+        // Remove elements outside the current window from the front of the deque
+        while (!dq.empty() && dq.front() <= i - K) {
+            dq.pop_front();
+        }
+
+        // Remove elements smaller than the current element from the back of the deque
+        while (!dq.empty() && arr[i] >= arr[dq.back()]) {
+            dq.pop_back();
+        }
+
+        dq.push_back(i); // Add the current element to the deque
+    }
+
+    result.push_back(arr[dq.front()]); // Add the maximum element for the last window to the result
+
     return result;
     }
 };
