@@ -12,21 +12,22 @@ class Solution{
     {
         //Your Code Here
         sort(a,a+n);
-        for(int i=0;i<n-1;i++){
-                int k = X-a[i];
+        for(int i=0;i<n;i++){
                 int left = i+1;
                 int right = n-1;
                 while(left<right){
-                    if(a[left]+a[right]==k)
+                    int sum = a[i]+a[left]+a[right];
+                    if(sum==X)
                         return true;
-                    else if(a[left]+a[right]>k)
+                    else if(sum>X)
                         right--;
-                    else if(a[left]+a[right]<k)
+                    else
                         left++;
                 }
         }
             return false;
     }
+
 };
 
 //{ Driver Code Starts.
