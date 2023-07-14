@@ -13,18 +13,7 @@ class Solution {
     // the intersection of two arrays.
     int NumberofElementsInIntersection(int a[], int b[], int n, int m) {
         // Your code goes here
-        // set<int> s;
-        // int count=0;
-        // for(int i=0;i<n;i++){
-        //     s.insert(a[i]);
-        // }
-        // for(int i=0;i<m;i++){
-        //     if(s.find(b[i])!=s.end()){
-        //         count++;
-        //     }
-        // }
-        // return count;
-         set<int>s;
+        set<int>s;
          sort(a, a + n);
          sort(b, b + m);
          int i=0;
@@ -37,11 +26,10 @@ class Solution {
                  i++;
                  j++;
              }
-             else if(a[i]>b[j])
+             if(a[i]>b[j])
                   j++;
-                  
-                  else
-                  i++;
+            if((a[i]<b[j]))
+                i++;
          }
          return s.size();
     }
