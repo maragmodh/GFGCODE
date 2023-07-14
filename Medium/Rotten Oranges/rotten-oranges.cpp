@@ -6,7 +6,8 @@ using namespace std;
 class Solution 
 {
     public:
-   int orangesRotting(vector<vector<int>>& grid) {
+    //Function to find minimum time required to rot all oranges. 
+    int orangesRotting(vector<vector<int>>& grid) {
         // Code here
         int r=grid.size();
         int c=grid[0].size();
