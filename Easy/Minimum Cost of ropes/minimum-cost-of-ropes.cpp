@@ -8,26 +8,22 @@ class Solution
 {
     public:
     //Function to return the minimum cost of connecting the ropes.
+    //concept : 2 small elemnt levana sum krine push kri devanu
     long long minCost(long long arr[], long long n) {
         // Your code here
-        // sort(arr,arr+n);
-        // long long sum = arr[0] + arr[1];
-        // long long sum2;
-        // for(int i=2;i<n;i++)
-        //     sum2 = sum + arr[i];
-        // return sum2;
         if(n==1)
             return 0;
+        // Priority queue to store elements in descending order
         priority_queue<long long,vector<long long>,greater<long long>>pq;
         for(int i=0;i<n;i++)    pq.push(arr[i]);
         long long ans=0;
         while(pq.size()>1){
-            long long x = pq.top();
+            long long x = pq.top(); // Get the smallest element from the priority queue
             pq.pop();
             long long y = pq.top();
             pq.pop();
             pq.push(x+y);
-            ans += x+y;
+            ans += (x+y);
         }
         return ans;
     }
