@@ -11,8 +11,6 @@ class Solution{
 public:
     int appleSequences(int n, int m, string arr){
         // code here 
-        // https://www.youtube.com/watch?v=oZweYQsHfbs
-        
         int orange=0,j=0,ans=0;
         for(int i=0;i<n;i++){
             if(arr[i]=='O')
