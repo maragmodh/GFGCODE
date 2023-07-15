@@ -27,7 +27,7 @@ class Solution
     }
     int lcs(int x, int y, string s1, string s2)
     {   
-        vector<vector<int>> dp(s1.length()+1, vector<int>(s2.length()+1, -1));
+        vector<vector<int>> dp(s1.length(), vector<int>(s2.length(), -1));
         return solve(s1, s2, 0, 0, dp);
     }
 };
