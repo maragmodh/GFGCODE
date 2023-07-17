@@ -12,33 +12,27 @@ using namespace std;
 // elements less than or equal to it in 2nd array
 class Solution{
   public:
+    int binary(int a[],int size,int element){
+    int low=0, high=size-1, mid;
+    while(low<=high){
+        int mid=low+(high-low)/2;   //int ni bar jatu re etle
+        if(a[mid]<=element)
+            low=mid+1;
+        else
+            high=mid-1;
+      }
+      return low;
+  }
+  public:
     vector<int> countEleLessThanOrEqual(int arr1[], int arr2[], 
                                  int m, int n)
     {
-    //Your code goes here
-    vector<int> ans(m);
-    sort(arr2, arr2 + n);
-
-    for (int i = 0; i < m; i++) {
-        int left = 0, right = n - 1;
-        int idx = -1;
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (mid < n && arr2[mid] <= arr1[i]) {
-                idx = mid;
-                left = mid + 1;
-            } else {
-                right = mid - 1;
-            }
-        }
-        if (idx == -1)
-            ans[i] = 0;
-        else
-            ans[i] = idx + 1;
+    sort(arr2,arr2+n);
+    vector<int>v;
+    for(int i=0; i<m; i++)
+        v.push_back(binary(arr2,n,arr1[i]));
+    return v;
     }
-    return ans;
-// }sing arr2 with an invalid index, preventing potential issues with undefined behavio
-}
 };
 
 //{ Driver Code Starts.
