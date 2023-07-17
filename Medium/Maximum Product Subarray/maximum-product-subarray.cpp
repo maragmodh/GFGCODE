@@ -11,27 +11,18 @@ public:
 	// Function to find maximum product subarray
 	long long maxProduct(vector<int> arr, int n) {
 	    // code here
-	    long long mini = arr[0];
-	    long long maxi = arr[0];
-	    long long res = arr[0];
-	   // long long curr = arr[0];
-	    for(int i=1;i<n;i++)
-	    {
-	        if(arr[i]==0){
-	            mini = 1;
-	            maxi = 1;
-	           // res = max(res,maxi);
-	            continue;
-	        }
-	        long long temp1 = arr[i]*mini;
-	        long long temp2 = arr[i]*maxi;
-	        maxi = max<long long>(temp1,temp2);
-            mini = min<long long>(temp1,temp2);
-            maxi = max<long long>(maxi,arr[i]);
-	        mini = min<long long>(mini,arr[i]);
-	        res = max<long long>(res,maxi);
-	   }
-	    return res;
+	     long long int ans=INT_MIN;
+        long long int pre=1;
+        long long int suf=1;
+        for(int i=0;i<n;i++)
+        {
+        if(suf==0) suf=1;
+        if(pre==0) pre=1;
+        pre=pre*arr[i];
+        suf=suf*arr[n-i-1];
+        ans=max(ans,max(pre,suf));
+        }
+    return ans;
 	}
 };
 
