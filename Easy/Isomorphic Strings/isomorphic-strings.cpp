@@ -13,20 +13,23 @@ class Solution
 {
     public:
     //Function to check if two strings are isomorphic.
-    bool areIsomorphic(string s, string t)
+    bool areIsomorphic(string str1, string str2)
     {
-        if(s.length()!=t.length())
-            return false;
-        vector<int> mpS(256, 0) , mpT(256, 0);
-        for(int index=0; index<s.size(); index++){
-            if(mpS[s[index]]  !=  mpT[t[index]] )
+        int n1=str1.length(),n2=str2.length();
+        if(n1!=n2)
+        return false;
+        unordered_map<char,char> m1;
+        for(int i=0;i<n1;i++)
+            m1[str1[i]]=str2[i];
+        for(int i=0;i<n1;i++)
+            if(m1[str1[i]]!=str2[i])
                 return false;
-            mpS[s[index]] = index+1;
-            mpT[t[index]] = index+1;
-        }
-        return true ;
-        // Your code here
-        
+        for(int i=0;i<n1;i++)
+            m1[str2[i]]=str1[i];
+        for(int i=0;i<n1;i++)
+            if(m1[str2[i]]!=str1[i])
+                return false;
+        return true;
     }
 };
 
