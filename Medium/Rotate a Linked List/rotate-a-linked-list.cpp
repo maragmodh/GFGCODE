@@ -81,11 +81,9 @@ int main()
     {
         int n, val, k;
         cin>>n;
-        
         cin>> val;
         Node *head = new Node(val);
         Node *tail = head;
-        
         for(int i=0; i<n-1; i++)
         {
             cin>> val;
