@@ -8,18 +8,21 @@ class Solution{
 public:
     // vector<int> findTwoElement(vector<int> arr, int n) {
         vector<int> findTwoElement(vector<int> arr, int n) {
-        vector<int> ans;
-        unordered_map<int, int> mp;
-        for(int i=0; i<n; i++){
-            mp[arr[i]]++;
-            if(mp[arr[i]]>1)
-                ans.push_back(arr[i]);
+        vector<int> v;
+        // repeating element 
+        for(int i=0 ;i<n; ++i){
+            int x = abs(arr[i]) - 1 ;
+            if(arr[x] < 0)
+                v.push_back(x+1) ;                         //O(1)SPACE
+            else
+                arr[x] = -1*arr[x] ;
         }
-        for(int i=1; i<n+1; i++){
-            if(mp[i]==0)
-                ans.push_back(i);
+        // missing number 
+        for(int i=0 ;i<n; ++i){
+            if(arr[i] > 0)
+                v.push_back(i+1) ;
         }
-        return ans;
+        return v ;
     }
 };
 
