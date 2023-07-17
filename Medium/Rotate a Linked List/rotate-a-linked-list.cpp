@@ -25,26 +25,36 @@ struct Node {
 };
 
 */
-
-
+// class node{
+    // public:
+//     int data;
+//     node* next;
+//     node(int data){
+//         this.data = data;
+//         next = NULL;
+//     }
+    
+    
+// };
+// node obj(20)
+// obj.next = &obj2
 class Solution
 {
     public:
     //Function to rotate a linked list.
     Node* rotate(Node* head, int k)
     {
-        if(head==NULL || head->next==NULL||k==0)
-            return head;
-        Node*curr = head;
-        while(curr->next!=NULL)
-            curr= curr->next;
-        curr->next = head;
-        // curr = head;
-        while(k--)
-            curr= curr->next;
-            
-        head = curr->next;
-        curr->next = NULL;
+        Node *temp1=head;
+        while(temp1->next)
+            temp1=temp1->next;
+        Node* temp2=head;
+        while(k>1){
+            temp2 = temp2->next;
+            k--;
+        }
+        temp1->next = head;
+        head = temp2->next;
+        temp2->next=NULL;
         return head;
     }
 };
