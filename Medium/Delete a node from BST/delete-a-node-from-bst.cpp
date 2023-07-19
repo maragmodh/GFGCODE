@@ -107,11 +107,12 @@ int main() {
 }
 // } Driver Code Ends
 
+
+// Function to delete a node from BST.
 Node* minvalue(Node* root){
     Node* temp =root;
-    while(temp->left!=NULL){
+    while(temp->left!=NULL)
         temp = temp->left;
-    }
     return temp;
 }
 // Function to delete a node from BST.
@@ -146,10 +147,8 @@ Node *deleteNode(Node *root, int val) {
         }
     }
     
-    else if(root->data>val){
+    else if(root->data>val)
         root->left=deleteNode(root->left,val);
-    }
-    else if(root->data<val){
+    else if(root->data<val)
         root->right=deleteNode(root->right,val);
-    }
 }
