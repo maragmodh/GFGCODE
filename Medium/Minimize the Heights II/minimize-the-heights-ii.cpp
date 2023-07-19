@@ -18,8 +18,10 @@ class Solution {
         for(int i=1;i<n;i++){
             
             if(arr[i]-k<0) continue;
+                    //last na sivay    //last
             maxi = max(arr[i-1]+k , arr[n-1]-k);
             mini = min(arr[0]+k , arr[i]-k);
+              // first element  without first
             
             diff = min(diff,maxi-mini);
         }
