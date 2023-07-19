@@ -104,7 +104,6 @@ class Solution
     //from left to right in Binary Tree.
     vector<int> topView(Node *root)
     {
-        //Your code here
         vector<int>ans;
         if(root==NULL)
             return ans;
@@ -122,10 +121,11 @@ class Solution
             if(temp->right)
                 q.push({temp->right,vertical+1});
         }
-        for(auto e:mp)
-            ans.push_back(e.second);
+        for(auto it : mp)
+            ans.push_back(it.second);
         return ans;
     }
+
 };
 
 
