@@ -105,44 +105,40 @@ struct Node
 
 class Solution {
 public:
-    void lefttraverse(Node *root,vector<int> &ans){
+    int lefttraverse(Node* root,vector<int>&ans){
         if(root==NULL)
-            return;
-        if(root->left==NULL && root->right == NULL)
-            return;
+            return 0;
+        if(root->left==NULL&&root->right==NULL)
+            return 0;
         ans.push_back(root->data);
         if(root->left)
             lefttraverse(root->left,ans);
         else
             lefttraverse(root->right,ans);
-    }
-    
-    void leafnode(Node *root,vector<int> &ans){
-        if(root==NULL)
-            return;
-        if(root->left==NULL && root->right == NULL){
-            ans.push_back(root->data);
-        }
         
+    }
+    int leafnode(Node* root,vector<int>&ans){
+        if(root==NULL)
+            return 0;
+        if(root->left==NULL&&root->right==NULL)
+            ans.push_back(root->data);
         leafnode(root->left,ans);
         leafnode(root->right,ans);
-        
     }
-    
-    void righttraverse(Node *root,vector<int> &ans){
+    int righttraverse(Node* root,vector<int>&ans){
         if(root==NULL)
-            return;
-        if(root->left==NULL && root->right == NULL)
-            return;
+            return 0;
+        if(root->left==NULL&&root->right==NULL)
+            return 0;
         if(root->right)
             righttraverse(root->right,ans);
         else
             righttraverse(root->left,ans);
-        ans.push_back(root->data);   // because reverse of right boundary nodes
+        ans.push_back(root->data);
+        
     }
     vector <int> boundary(Node *root)
     {
-        //Your code here
         vector<int>ans;
         if(root==NULL)
             return ans;
@@ -151,7 +147,6 @@ public:
         leafnode(root->left,ans);
         leafnode(root->right,ans);
         righttraverse(root->right,ans);
-        return ans;
     }
 };
 
