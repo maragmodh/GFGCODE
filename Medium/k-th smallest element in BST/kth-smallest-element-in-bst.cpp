@@ -99,7 +99,8 @@ class Solution {
             return -1;
         
         int left = solve(root->left,i,k);
-        
+// If the left subtree has the kth smallest element, return it.
+
         if(left != -1)
             return left;
             
