@@ -9,13 +9,14 @@ using namespace std;
 class Solution{
   public:
     int minJumps(int arr[], int n){
-        // Your code here
-        int steps=0,jump=0,count=0;
+        int steps=0;// Variable to track the maximum reachable position
+    int jump = 0;     // Variable to track the position to make the next jump
+    int count = 0;    // Variable to count the number of jumps taken
         for(int i=0;i<n-1;i++){
             steps=max(steps,i+arr[i]);
             if(i==jump){
             count++;
-            jump=steps;
+            jump=steps;// Set the position for the next jump
             if(steps>=n-1)
             return count;
             
