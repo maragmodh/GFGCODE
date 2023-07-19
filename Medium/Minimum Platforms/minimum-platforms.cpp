@@ -15,16 +15,14 @@ class Solution{
     	// Your code here
     	sort(arr,arr+n);
     	sort(dep,dep+n);
-    	int i = 1;
-    	int j = 0;
-    	int plat = 1;
+    	int i=1,j=0,platform=1;
     	for(int i=1;i<n;i++){
     	    if(arr[i]<=dep[j])
-    	        plat++;
+    	        platform++;
     	    else
     	        j++;
     	}
-    	return plat;
+    	return platform;
     }
 };
 
