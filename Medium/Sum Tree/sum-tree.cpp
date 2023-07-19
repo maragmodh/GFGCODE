@@ -93,9 +93,8 @@ struct Node
 
 // Should return true if tree is Sum Tree, else false
 class Solution
-{
-    public:
-     int add(Node * root){
+{   public:
+    int add(Node * root){
         if(root==NULL) return 0;
      return root->data+add(root->left)+add(root->right);
      //return ans;
