@@ -8,21 +8,13 @@ class Solution{
 public:
 	int rowWithMax1s(vector<vector<int> > arr, int n, int m) {
 	    // code here
-	    int col = m-1;
-	    int row = -1;
-	    for(int i=0;i<n;i++){
-	        for(int j=col;j>=0;j--){
-	            if(arr[i][j]==1)
-	            {
-	                col--;
-	                row=i;
-	            }
-	            else
-	                break;
-	        }
-	    }
-	    return row;
-	    
+	      for(int j=0;j<m;j++)
+        {
+            for(int i =0; i<n ; i++)
+                if(arr[i][j]==1) return i;
+        }
+        
+        return -1;
 	}
 
 };
