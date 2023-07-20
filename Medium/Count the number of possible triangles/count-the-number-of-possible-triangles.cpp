@@ -11,15 +11,24 @@ class Solution
     int findNumberOfTriangles(int arr[], int n)
     {
         // code here
-        sort(arr,arr+n);
         int triangles=0;
-        for(int i=0;i<n-2;i++)
-            for(int j=i+1;j<n-1;j++)
-                for(int k=j+1;k<n;k++){
-                    if(arr[i]+arr[j]<=arr[k])
-                        break;
-                    triangles++;
+        sort(arr,arr+n,greater<int>());
+        for(int i=0;i<n-2;i++){
+            int maxSide=arr[i];
+            int left=i+1,right=n-1;
+            while(left<right){
+                if(arr[left]+arr[right]>maxSide){
+    // If the sum of two smaller sides is greater than the largest side,
+    // it forms a valid triangle.
+    // Since the array is sorted, all elements between l and r will also
+    // satisfy the condition.
+                    triangles+=right-left;
+                    left++;
                 }
+                else
+                    right--;
+            }
+        }
         return triangles;
     }
 };
