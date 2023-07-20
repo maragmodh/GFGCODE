@@ -4,31 +4,31 @@ using namespace std;
 
 // } Driver Code Ends
 class Solution{
-    // const int MOD = 1e9 + 7;
+
 	public:
 	int const mod=1e9+7;
-    int helper(int *arr,int idx,int sum,vector<vector<int>>&dp){
-    if(idx==0){
-        if(arr[0]==0 && sum==0)return 2;
-        if(sum==0 || arr[0]==sum)return 1;
-        return 0;
+    int helper(int arr[], int n, int idx, long long sum, int target, vector<vector<int>>& memo) {
+    if (idx == n) {
+        if (sum == target)
+            return 1;
+        else
+            return 0;
     }
-   
-    if(dp[idx][sum]!=-1)
-        return dp[idx][sum];
-    int notpick=helper(arr,idx-1,sum,dp);
-    int pick=0;
-    if(arr[idx]<=sum)
-        pick=helper(arr,idx-1,sum-arr[idx],dp);
-    return dp[idx][sum]=(pick+notpick)%mod;
-}
-  
+    if (sum > target)
+        return 0;
+    if (memo[idx][sum] != -1)
+        return memo[idx][sum];
+    sum += arr[idx];
+    int l = helper(arr, n, idx + 1, sum, target, memo) % mod;
+    sum -= arr[idx];
+    int r = helper(arr, n, idx + 1, sum, target, memo) % mod;
+    return memo[idx][sum] = (l + r) % mod;
+    }
     int perfectSum(int arr[], int n, int k)
     {
     vector<vector<int>>dp(n,vector<int>(k+1,-1));
-    return helper(arr,n-1,k,dp);
-	}
-	  
+    return helper(arr,n,0,0,k,dp);
+    }
 };
 
 //{ Driver Code Starts.
