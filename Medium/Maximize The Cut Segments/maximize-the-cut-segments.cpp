@@ -16,9 +16,9 @@ class Solution
             return INT_MIN;
         if(dp[n] != -1)
             return dp[n];
-        int a = solve(n - x, x, y, z,dp) + 1;
-        int b = solve(n - y, x, y, z,dp) + 1;
-        int c = solve(n - z, x, y, z,dp) + 1;
+        int a = 1 + solve(n - x, x, y, z,dp) ;
+        int b = 1 + solve(n - y, x, y, z,dp) ;
+        int c = 1 + solve(n - z, x, y, z,dp) ;
         
         return dp[n] = max({a, b, c});
     }
