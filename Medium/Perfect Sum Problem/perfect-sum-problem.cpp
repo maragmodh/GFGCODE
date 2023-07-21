@@ -7,7 +7,7 @@ class Solution{
 
 	public:
 	int const mod=1e9+7;
-    int helper(int arr[], int n, int idx, long long sum, int target, vector<vector<int>>& memo) {
+    int helper(int arr[], int n, int idx, long long sum, int target, vector<vector<int>>&dp) {
     if (idx == n) {
         if (sum == target)
             return 1;
@@ -16,13 +16,13 @@ class Solution{
     }
     if (sum > target)
         return 0;
-    if (memo[idx][sum] != -1)
-        return memo[idx][sum];
+    if (dp[idx][sum] != -1)
+        return dp[idx][sum];
     sum += arr[idx];
-    int l = helper(arr, n, idx + 1, sum, target, memo) % mod;
+    int l = helper(arr, n, idx + 1, sum, target, dp) % mod;
     sum -= arr[idx];
-    int r = helper(arr, n, idx + 1, sum, target, memo) % mod;
-    return memo[idx][sum] = (l + r) % mod;
+    int r = helper(arr, n, idx + 1, sum, target, dp) % mod;
+    return dp[idx][sum] = (l + r) % mod;
     }
     int perfectSum(int arr[], int n, int k)
     {
