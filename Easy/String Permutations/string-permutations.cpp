@@ -5,25 +5,30 @@ using namespace std;
 // } Driver Code Ends
 class Solution{
     public:
-    //Complete this function
-    
-    void solve(string s,int index,vector<string>&ans){
-        if(index>=s.size()){
-            ans.push_back(s);
+    void solve(string S, vector<string>&ans,int index){
+        //base case
+        if(index>=S.size()){
+            ans.push_back(S);
             return;
         }
-        for(int i=index;i<s.size();i++){
-        swap(s[i], s[index]);
-        solve(s, index + 1, ans);
-        swap(s[index], s[i]);
+        //premutaiton
+        for(int i=index;i<S.size();i++){
+            swap(S[index],S[i]);
+            solve(S,ans,index+1);
+            swap(S[index],S[i]);
         }
     }
-    vector<string> permutation(string S)
+
+ 
+
+vector<string> permutation(string S)
     {
-        vector<string>res;
-        solve(S,0,res);
-        sort(res.begin(),res.end());
-        return res;
+        //Your code here
+        vector<string>ans;
+        int index=0;
+        solve(S,ans,index);
+        sort(ans.begin(),ans.end());
+        return ans;
     }
 };
 
