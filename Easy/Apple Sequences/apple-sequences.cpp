@@ -11,19 +11,19 @@ class Solution{
 public:
     int appleSequences(int n, int m, string arr){
         // code here 
-        int orange=0,j=0,ans=0;
-        for(int i=0;i<n;i++){
-            if(arr[i]=='O')
-                orange++;
-            while(orange>m){
-                if(arr[j]=='O')
-                    orange--;
-                
-                j++;
+        int maxlen = 0;
+        int count = 0;
+        int start=0,end=0;
+        while(end<n){
+            if(arr[end]=='O')   count++;
+            while(start<n && count>m){
+                if(arr[start]=='O')   count--;
+                start++;
             }
-            ans = max(ans,i-j+1);
+            maxlen = max(maxlen,end-start+1);
+            end++;
         }
-        return ans;
+        return maxlen;
     }
 };
 
