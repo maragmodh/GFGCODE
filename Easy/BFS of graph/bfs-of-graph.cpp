@@ -5,32 +5,28 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public:
-    void bfsRecursive(vector<int>& bfs, vector<bool>& visited, queue<int>& q, vector<int> adj[]) {
-    if (q.empty())
-        return;
-    int node = q.front();
-    q.pop();
-    bfs.push_back(node);   // Add the current node to the BFS traversal order
-    // Visit all unvisited neighbors of the current node
-    for (int neighbor : adj[node]) {
-        if (!visited[neighbor]) {
-            visited[neighbor] = true;
-            q.push(neighbor);
-        }
-    }
-
-    bfsRecursive(bfs, visited, q, adj);
-}
+    // Function to return Breadth First Traversal of given graph.
     vector<int> bfsOfGraph(int V, vector<int> adj[]) {
-        vector<int> bfs;              // To store the BFS traversal order
-        vector<bool> visited(V, false);   // To keep track of visited nodes
-        queue<int> q;                 // Queue for BFS traversal
-
-    // Start BFS traversal from node 0
-        visited[0] = true;
+        int vis[V]={0};
+        vis[0]=1;
+        vector<int> ans;
+        queue<int>q;
         q.push(0);
-        bfsRecursive(bfs, visited, q, adj);
-        return bfs;
+        while(!q.empty())
+        {
+            
+            int node=q.front();
+            q.pop();
+            ans.push_back(node);
+            for(auto x:adj[node])
+            {
+                if(vis[x]==0){
+                    vis[x]=1;
+                    q.push(x);
+                }
+            }
+        }
+        return ans;
     }
 };
 
