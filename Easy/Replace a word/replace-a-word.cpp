@@ -8,33 +8,20 @@ using namespace std;
 class Solution {
   public:
     string replaceAll(string str, string oldW, string newW) {
-        // code here
-        // int count=0;
-        // for(int i=0;i<str.length();i++){
-        //     if(str[i]==oldW[i])
-        //         continue;
-        //         count++;
-        // }
-        // for(int i=0;i<str.length();i++){
-        //     if(str[i]==oldw[i]){
-        //         continue;
-        //         count--;
-        //     }
-        //     if(count==0)
-                
-        // }
-        int s=oldW.length();
-        string temp="";
-        for(int i=0;i<str.length();i++){
+        int s=oldW.size();
+        int n=str.size();
+        string ans;
+        for(int i=0;i<n;){
             if(str.substr(i,s)==oldW){
-            temp+=newW;
-            i+=s-1;
+                ans+=newW;
+                i = i + s;
             }
-            else
-            temp+=str[i];
-            
+            else{
+                ans+=str[i];
+                i++;
+            }
         }
-        return temp;
+        return ans;
     }
 };
 
