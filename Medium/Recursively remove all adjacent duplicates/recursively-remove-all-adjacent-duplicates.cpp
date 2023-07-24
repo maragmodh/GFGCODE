@@ -11,17 +11,16 @@ class Solution{
 public:
     string rremove(string s){
         string res="";
-         int n=s.size();
-         for(int i=0;i<s.size();i++){
-             if(s[i]==s[i+1] || s[i]==s[i-1])
-                 continue;
-             else
-                 res.push_back(s[i]);
-         }
-         if(res==s){
-             return res;
-         }
-         return rremove(res);
+        int n=s.size();
+        for(int i=0;i<s.size();i++){
+            if(s[i]==s[i+1] || s[i]==s[i-1])
+                continue;
+            else
+                res.push_back(s[i]);
+        }
+        if(res==s)
+            return res;
+        return rremove(res);
     }
 };
 
