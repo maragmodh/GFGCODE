@@ -10,25 +10,27 @@ class Solution{
 public:	
 	
 // 	time complexity -O(n) | space complexity O(1)
-	string reverse(string s,int start ,int end)
-{
-   while(start<=end)
-   {
-       swap(s[start],s[end]);
-       start++;
-       end--;
-   }
-   return s;
-}
+// 	string reverse(string s,int start ,int end)
+// {
+//   while(start<=end)
+//   {
+//       swap(s[start],s[end]);
+//       start++;
+//       end--;
+//   }
+//   return s;
+// }
 int isPalindrome(string s)
 {
    // Your code goes here
-        if((reverse(s,0,s.length()-1))==s)
+        string temp(s);
+        reverse(s.begin(),s.end());
+        if(temp==s)
             return 1;
         return 0;
 }
-
 };
+
 
 //{ Driver Code Starts.
 
