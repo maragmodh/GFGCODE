@@ -10,15 +10,13 @@ using namespace std;
 class Solution{
 public:
     string rremove(string s){
-        // code here
-         string res="";
+        string res="";
          int n=s.size();
          for(int i=0;i<s.size();i++){
-             if(s[i]==s[i+1] || s[i]==s[i-1]){
+             if(s[i]==s[i+1] || s[i]==s[i-1])
                  continue;
-             else{
+             else
                  res.push_back(s[i]);
-             }
          }
          if(res==s){
              return res;
