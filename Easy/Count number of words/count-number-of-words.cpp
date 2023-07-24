@@ -21,7 +21,6 @@ int main()
 
 int countWords(string s)
 {
-        //code here.
     int  n = s.length();
     int temp=0;
     int c=0;
