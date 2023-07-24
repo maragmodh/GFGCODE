@@ -7,21 +7,9 @@ class Solution{
 public:
     int isPossible(string S){
         //Code Here
-        int n = S.length();
-        string curr = "";
-        unordered_set<string>st;
-        for(int i = 0;i<n;i++){
-            curr += S[i];
-            if(st.find(curr) == st.end()){
-                st.insert(curr);
-                curr = "";
-            }
-            if(st.size() == 4){
-                return 1;
-            }
-            
-        }
-        return 0 ;
+        set<char> st(S.begin(),S.end());
+        if(st.size()<=3 && S.size()<=5) return 0;
+        return 1;
     }
 };
     
