@@ -22,13 +22,13 @@ class Solution {
             maxi = max(arr[i-1]+k , arr[n-1]-k);
             mini = min(arr[0]+k , arr[i]-k);
               // first element  without first
-            
             diff = min(diff,maxi-mini);
         }
         
         return diff;
     }
 };
+
 
 //{ Driver Code Starts.
 int main() {
