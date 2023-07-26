@@ -7,30 +7,32 @@ using namespace std;
 class Solution
 {
     public:
-    pair<long,long> indexes(vector<long long> v, long long x)
-    {
-        // code here
-        pair<long,long>result;
-        for(int i=0;i<v.size();i++){
-            if(v[i]!=x){
-                result.first=-1;
-                result.second=-1;
+    int BS(vector<long long> &arr, long long K, bool occurence)
+    { 
+        int N = arr.size();
+        int s = 0, e = N-1;
+        int indx = -1;
+       while(s<=e){
+           int mid = s + (e-s)/2;
+            if(K == arr[mid]){
+                indx = mid;
+                if(occurence) e = mid-1;
+                else s = mid + 1; 
             }
-        }
-        for(int i=0;i<v.size();i++){
-            if(v[i]==x){
-                result.first=i;
-                break;
-            }
-            
-        }
-          for(int i=v.size()-1;i>=0;i--){
-            if(v[i]==x){
-                result.second=i;
-                break;
-            }
-        }
-        return result;
+            else if(arr[mid] < K) 
+                s = mid + 1;
+            else 
+                e = mid - 1;
+       }
+       return indx;
+    }
+    pair<long,long> indexes(vector<long long> v, long long x){
+        int n = v.size();
+        pair<long ,long> p;
+        p.first = p.second = -1;
+        p.first = BS(v, x, 1); // 1 denotes the first occur.
+        p.second = BS(v, x, 0); // 0 denotes last occur.
+        return p;
     }
 };
 
