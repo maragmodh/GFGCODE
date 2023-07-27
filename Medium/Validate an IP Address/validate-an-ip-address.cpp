@@ -10,8 +10,7 @@ You are required to complete this method */
 class Solution {
     public:
         int isValid(string s) {
-            // code here
-            int count=0;
+        int count=0;
             string ans;
             for(int i=0;i<s.length();i++){
                 if(s[i]!='.')ans+=s[i];
@@ -20,15 +19,13 @@ class Solution {
                     if(ans.length()>1 && ans[0]=='0')return 0;
                     if(ans.length()==0 || ans.length()>3)return 0;
                     if(int(ans[0])<'0' || int(ans[0])>'9')return 0;
-                    if(ans.length()==2){
+                    if(ans.length()==2)
                         if(int(ans[1])<'0' || int(ans[1])>'9')return 0;
-                    }
                     if(ans.length()==3)
                         if(int(ans[2])<'0' || int(ans[2])>'9')return 0;
                     int num=stoi(ans);
-                    if(num<0 || num>255){
+                    if(num<0 || num>255)
                         return 0;
-                    }
                     ans="";
                 }
             }
