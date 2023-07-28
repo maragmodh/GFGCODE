@@ -10,9 +10,8 @@ using namespace std;
 
 long long maxArea(long long A[], int len)
 {
-    // Your code goes here              // 1 5 5 5
+                                        // 1 5 5 5
                                         // 5 5 4 3
-    // unordered_map<int,int>mp;
     int start=0;
     int end = len-1;
     int currarea,maxarea=0;
@@ -20,13 +19,14 @@ long long maxArea(long long A[], int len)
         currarea = min(A[start],A[end]) * (end-start);
         if(currarea>maxarea)
             maxarea = currarea;
-        if(min(A[start],A[end])==A[start])
+        if(A[start]<A[end])
             start++;
         else
             end--;
     }
     return maxarea;
 }
+
 
 //{ Driver Code Starts.
 
