@@ -10,23 +10,18 @@ class Solution{
     // a: input array
     // n: size of array
     int equilibriumPoint(long long arr[], int n) {
-        
-        // Your code here
         long sum = 0;
         long leftSum = 0;
-        for(int i=0; i<n; i++) {
+        for(int i=0; i<n; i++)
             sum += arr[i];
-        }
-        for(int i=0; i<n; i++) {
+        for(int i=0; i<n; i++){
             sum -= arr[i];   
-            if(leftSum == sum) {
+            if(leftSum == sum)
                 return i+1;
-            }   
             leftSum += arr[i];
         }
         return -1;
     }
-
 };
 
 //{ Driver Code Starts.
