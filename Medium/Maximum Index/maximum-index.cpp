@@ -7,25 +7,25 @@ using namespace std;
 class Solution{
 public:
     int maxIndexDiff(int arr[], int n) {
-        vector<int> stL;
-        vector<int> stR;
-        for(int i = 0; i<n; i++) {
-            if(stL.empty() || arr[stL.back()]>arr[i]) stL.push_back(i);
-            if(stR.empty() || arr[stR.back()]<arr[n-i-1]) stR.push_back(n-i-1);
+        // code here
+        vector<int>presum(n),suffsum(n);
+        presum[0] = arr[0];
+        suffsum[n-1]=arr[n-1];
+        for(int i=1;i<n;i++){
+            presum[i]=min(presum[i-1],arr[i]);
+            suffsum[n-i-1] = max(suffsum[n-i],arr[n-i-1]);
         }
-       
-        int mx = 0;
-        int x = 0;
-        while(!stL.empty() && !stR.empty()) {
-            int i = stL[x];
-            int j = stR.back();
-            if(arr[j] >= arr[i]) {
-                mx = max(mx, j-i);
-                stR.pop_back();
-            } else
-                x++;
+        int i,j,ans;
+        i=j=0;
+        ans = -1;
+        while(j<n){
+            if(presum[i]<=suffsum[j]){
+                ans = max(ans,j-i);
+                ++j;
+            }
+            else ++i;
         }
-        return mx;
+        return ans;
     }
 
 };
