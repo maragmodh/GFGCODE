@@ -10,25 +10,16 @@ class Solution{
 	vector<long long> findMissing(long long A[], long long B[],  
                  int N, int M) 
 	{ 
-	    // Your code goes here
-	   // unordered_map<long long,long long>mp;
-	   // vector<long long>v;
-	   // for(int i=0;i<N;i++){
-	   //     mp[B[i]]++;
-	   // }
-	   // for(int i=0;i<N;i++)
-	   //     if(mp.find(A[i]) != mp.end())
-	   //         v.push_back(A[i]);
-	    unordered_map<long long,long long>mp;
-	    vector<long long>v;
-	    for(int i=0;i<M;i++){
-	        mp[B[i]]++;
-	    }
-	    for(int i=0;i<N;i++)
-	        if(mp[A[i]] < 1)
-	            v.push_back(A[i]);
-	            
-	    return v;
+	    unordered_set<int>s;
+        vector<long long>v;
+        for(int i=0;i<M;i++)
+            s.insert(B[i]);
+        for(int i=0;i<N;i++)
+        {
+            if(s.find(A[i])==s.end())
+                v.push_back(A[i]);
+        }
+        return v;
 	} 
 };
 	
