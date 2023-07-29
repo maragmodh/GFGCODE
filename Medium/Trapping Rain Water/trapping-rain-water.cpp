@@ -12,19 +12,14 @@ class Solution{
     long long trappingWater(int arr[], int n){
         int l[n],r[n];
         int ml = l[0] = arr[0];     //max from left
-        int mr = r[n-1] = arr[n-1];
-        for(int i=1;i<n;i++){
-            if(arr[i]>ml)
-                ml = arr[i];
-                
-            l[i] = ml;
-        }
-        for(int i=n-2;i>=0;i--){
-            if(arr[i]>mr)
-                mr = arr[i];
-                
-            r[i] = mr;
-        }
+        int mr = r[n-1] = arr[n-1]; 
+        for (int i = 1; i < n; i++) {
+        l[i] = max(l[i - 1], arr[i]);
+      }
+      
+        for (int i = n-2; i>=0; i--) {
+        r[i] = max(r[i + 1], arr[i]);
+      }
         long long s=0;
         for(int i=0;i<n;i++)
             s += min(l[i],r[i]) - arr[i];
