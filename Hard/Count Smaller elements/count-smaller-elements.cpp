@@ -12,11 +12,9 @@ class Solution{
 public:	
 	vector<int> constructLowerArray(int *arr, int n) {
 	    // code here
-	   vector<int> ans,temp;
+	vector<int> ans,temp;
     for(int i=0;i<n;i++)
-    {
         temp.push_back(arr[i]);
-    }
     
     sort(temp.begin(),temp.end());
     
@@ -26,7 +24,6 @@ public:
         ans.push_back(index);
         temp.erase(temp.begin()+index);
     }
-    
     return ans;
 	}
 };
