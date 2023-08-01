@@ -20,18 +20,18 @@ class Solution
                     i++;
                     j++;
                     k++;
-                } else if(a[i] <= b[j] && a[i] <= c[k]) {
+                } 
+                else if(a[i] <= b[j] && a[i] <= c[k])
                     i++;
-                } else if(b[j] <= a[i] && b[j] <= c[k]) {
+                else if(b[j] <= a[i] && b[j] <= c[k])
                     j++;
-                } else {
+                else
                     k++;
-                }
             }
             return ans;
         }
-
 };
+
 
 //{ Driver Code Starts.
 
