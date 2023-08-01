@@ -17,10 +17,10 @@ public :
 */
 
 class Solution{
-    int minele;
-    stack<int>s;
     public:
     
+    int minele;
+    stack<int> s;
        /*returns min element from stack*/
        int getMin(){
            if(s.empty())
@@ -32,7 +32,7 @@ class Solution{
        
        /*returns poped element from stack*/
        int pop(){
-           if(s.empty())
+            if(s.empty())
                 return -1;
             int y=s.top();
             s.pop();
