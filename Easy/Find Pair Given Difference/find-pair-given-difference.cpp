@@ -30,27 +30,18 @@ int main()
 
 bool findPair(int arr[], int size, int n){
     //code
-    // unordered_map<int,int>mp;
-    // int f=-1;
-    // for(int i=0;i<n;i++)
-    //     mp[arr[i]]++;
-    // for(int i=0;i<n;i++){
-    //     int y = arr[i]+n;
-    //     if(mp[y]){
-    //         f=1;
-    //         break;
-    //     }
-    // }
-    // return f;
+    // APPROACH 3 USING 2 POINTERS(O(N*LOGN)) ---------->
     sort(arr,arr+size);
-    int i=0,j=0;
-    while(j<=size){
-        if(arr[j]-arr[i]==n && i!=j)
+    int i=0,j=i+1;
+    while(i<size && j<size){
+        if(i==j)j++;
+        if(arr[j]-arr[i] == n){
             return true;
-        else if(arr[j]-arr[i]<n)
+        }else if(arr[j] - arr[i] < n){
             j++;
-        else 
+        }else {
             i++;
+        }
     }
     return false;
 }
