@@ -12,7 +12,6 @@ class Solution{
     //Function to sort the array into a wave-like array.
     void convertToWave(int n, vector<int>& arr){
         
-        // Your code here
         if(n%2==0){
         for(int i=0;i<n;i=i+2)
             swap(arr[i],arr[i+1]);
@@ -21,7 +20,6 @@ class Solution{
         for(int i=0;i<n-1;i=i+2)
             swap(arr[i],arr[i+1]);
         
-            
     }
 };
 
