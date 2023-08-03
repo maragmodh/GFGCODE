@@ -31,19 +31,20 @@ int main()
 
 bool find4Numbers(int A[], int n, int X)  
 {
-    sort(A,A+n);
-    for(int i=0;i<n;i++){
-        int y=X-A[i];
-        for(int j=i+1;j<n;j++)
-        {
-           int l=j+1,r=n-1;
-           while(l<r){
-           int sum=A[j]+A[l]+A[r];
-           if(sum==y) return true;
-           else if(sum>y) r--;
-           else l++;
-           }
+     sort(A,A+n);
+    for(int i=n-1;i>=0;i--){
+        for(int j=i-1;j>=0;j--){
+            int l=0,k=j-1;
+            while(l<k){
+                int sum=A[i]+A[j]+A[k]+A[l];
+                if(sum==X)
+                    return true;
+                else if(sum<X)
+                    l++;
+                else
+                    k--;
+            }
         }
     }
- return false;
-}
+    return false;
+} 
