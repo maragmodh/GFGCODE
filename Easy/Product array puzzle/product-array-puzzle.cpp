@@ -14,20 +14,19 @@ class Solution{
     // nums: given vector
     // return the Product vector P that hold product except self at each index
     vector<long long int> productExceptSelf(vector<long long int>& nums, int n) {
-       vector<long long int> ans(n,1);
-        long long prefix=nums[0];
+        vector<long long int>l(n),r(n);
+        l[0]=1;
+        r[n-1]=1;
         for(int i=1;i<n;i++)
-        {
-            ans[i]=prefix;
-            prefix=nums[i]*prefix;
-        }
-        long long int suffix=nums[n-1];
+            l[i] = l[i-1]*nums[i-1];
+            
         for(int i=n-2;i>=0;i--)
-        {
-            ans[i]=ans[i]*suffix;
-            suffix=suffix*nums[i];
-        }
-        return ans;
+            r[i] = r[i+1]*nums[i+1];
+        
+        for(int i=0;i<n;i++)
+            nums[i] = l[i]*r[i];
+        
+        return nums;       
     }
 };
 
