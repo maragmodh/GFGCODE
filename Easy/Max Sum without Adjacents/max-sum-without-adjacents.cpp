@@ -10,31 +10,20 @@ class Solution{
 public:	
 	// calculate the maximum sum with out adjacent
 	int findMaxSum(int *arr, int n) {
-	    // code here
-	   // vector<int>dp(n+1);
-	   // int a;
-	   // if(n==1)
-	   //     return arr[0];
-	   // if(n==2)
-	   //     return arr[1];
-	   // for(int i=2;i<n;i++){
-	   // int incl = arr[i] + findMaxSum(arr,n-2);
-	   // int excl = findMaxSum(arr,n-1);
-	   // a = max(incl,excl);
-	   // }
-	    
-	   // return a;
-	   vector<int>dp(n);
-	   dp[0] = arr[0];
-	   //int dp[1] = arr[1];
-	   for(int i=1;i<n;i++){
-	       int incl = dp[i-2] + arr[i];
-	       int excl = dp[i-1];
-	       dp[i] = max(incl,excl);
-	   }
-	   return dp[n-1];
+	   int prev1 = arr[0];
+       int prev2 = 0;
+       for(int i=1;i<n;i++){
+           int inc = prev2 + arr[i];
+           int exc = prev1 + 0;
+           
+           prev2 = prev1;
+           prev1 = max(inc,exc);
+       }
+       
+       return prev1;
 	}
 };
+
 
 //{ Driver Code Starts.
 
