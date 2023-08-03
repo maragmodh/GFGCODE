@@ -6,13 +6,16 @@ using namespace std;
 class Solution{
   public:
     int findExtra(int a[], int b[], int n) {
-        // add code here.
-        for(int i=0;i<n-1;i++){
-            if(a[i]-b[i]!=0)
-                return i;
+        int low=0,high=n-1;
+        int mid=(low+high)/2;
+        while(low<high){
+            if(b[mid]>a[mid])
+               high=mid; 
+            else
+                low=mid+1;
+            mid=(low+high)/2;
         }
-        return n-1;
-    
+        return mid;
     }
 };
 
