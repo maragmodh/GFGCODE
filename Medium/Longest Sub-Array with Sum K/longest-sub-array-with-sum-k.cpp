@@ -15,9 +15,11 @@ class Solution{
             sum+=A[i];
             int x=sum-K;
             //checking if remaining sum exists
-            if(m.find(x)!=m.end())  ans=max(ans,i-m[x]);
+            if(m.find(x)!=m.end()) 
+                ans=max(ans,i-m[x]);
             //keeping track of prefix sum
-            if(m.find(sum)==m.end()) m[sum]=i;
+            if(m.find(sum)==m.end()) 
+                m[sum]=i;
         }
         return ans;
     } 
