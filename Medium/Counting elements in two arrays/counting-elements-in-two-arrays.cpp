@@ -12,16 +12,29 @@ using namespace std;
 // elements less than or equal to it in 2nd array
 class Solution{
   public:
+    int binarySearch(int arr2[],int n,int key){
+      int ans=0;
+      int left=0,right=n-1;
+      while(left<=right){
+        int mid=(left+right)/2;
+        if(arr2[mid]<=key){
+            ans=mid+1;
+            left=mid+1;
+        }
+        else right=mid-1;
+      }
+      return ans;
+  }
     vector<int> countEleLessThanOrEqual(int arr1[], int arr2[], 
                                  int m, int n)
     {
-    vector <int> soln(m);
-    sort(arr2, arr2 + n);
-        
-    for(int i=0; i<m; i++)
-        soln[i] = upper_bound(arr2, arr2+n, arr1[i]) - arr2 ;
-        
-    return soln;
+    //Your code goes here
+        vector<int>ans;
+        sort(arr2,arr2+n);
+        for(int i=0;i<m;i++){
+            ans.push_back(binarySearch(arr2,n,arr1[i]));
+        }
+        return ans;
     }
 };
 
