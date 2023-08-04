@@ -13,8 +13,8 @@ class Solution{
      int solve(int price[], int n,vector<int>&dp){
       if(n==0)
           return 0;
-      if(n<0)
-          return INT_MIN;
+    //   if(n<0)
+    //       return INT_MIN;
       if(dp[n]!=-1)
           return dp[n];
       int maxi=INT_MIN;
@@ -31,6 +31,7 @@ class Solution{
         return ans;
     }
 };
+
 
 //{ Driver Code Starts.
 
