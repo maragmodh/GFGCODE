@@ -10,11 +10,19 @@ public:
 	// Function returns the second
 	// largest elements
 	int print2largest(int arr[], int n) {
-	    sort(arr, arr + n);
-        n = unique(arr, arr + n) - arr;
-        if(n <= 1)
-            return -1;
-        return arr[n - 2];
+	    int largest=arr[0];
+        int slargest=-1;
+        for(int i=0;i<n;i++){
+            if(arr[i]>largest){
+                slargest=largest;
+                largest=arr[i];
+            }
+        else if(arr[i]>slargest && arr[i]!=largest){
+            slargest=arr[i];
+        }
+    }
+    
+    return slargest;
 	}
 };
 
