@@ -67,44 +67,24 @@ int main()
 // } Driver Code Ends
 
 
-/* The structure of the Linked list Node is as follows:
+// /* The structure of the Linked list Node is as follows:
 
-struct Node
-{
-    int data;
-    Node *next;
-    Node(int val)
-    {
-        data=val;
-        next=NULL;
-    }
-};
 
-*/
 
 Node* findIntersection(Node* head1, Node* head2)
 {
-    // Your Code Here
-    Node *first = head1;
-    Node *second = head2;
-    vector<int> arr;
-    while(first and second) {
-        if (first->data < second->data)
-            first=first->next;
-        else if (first->data > second->data)
-            second=second->next;
+    Node* ans=new Node(0);
+    Node* t=ans;
+    while(head1 && head2){
+        if(head1->data<head2->data)head1=head1->next;
+        else if(head1->data>head2->data)head2=head2->next;
         else {
-            arr.push_back(first->data);
-            first=first->next;
-            second=second->next;
+            ans->next=new Node(head1->data);
+            ans=ans->next;
+            head1=head1->next;
+            head2=head2->next;
         }
     }
-    Node *temp = new Node(arr[0]);
-    Node *head = temp;
-    for (int i=1; i<arr.size(); i++) {
-        temp->next = new Node(arr[i]);;
-        temp=temp->next;
-    }
     
-    return head;
+    return t->next;
 }
