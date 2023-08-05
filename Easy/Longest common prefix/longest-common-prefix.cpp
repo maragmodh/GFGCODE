@@ -12,14 +12,17 @@ public:
         // code here
         vector<int>v(2,-1);
          for(int i=1;i<str1.length();i++){
-         if(str2.find(str1.substr(0,i))!=string::npos){
-             v[0]=0;
-             v[1]=i-1;
+         if(str2.find(str1.substr(0,i))==string::npos)
+             continue;
+         else{
+            v[0] =  0;
+            v[1] = i-1;
          }
     }
  return v;
     }
 };
+
 
 //{ Driver Code Starts.
 
