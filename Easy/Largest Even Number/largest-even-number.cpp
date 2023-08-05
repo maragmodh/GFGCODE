@@ -6,21 +6,25 @@ using namespace std;
 
 class Solution{
     public:
-    string LargestEven(string str){
-        //complete the function here
-         sort(str.begin(),str.end());
-         reverse(str.begin(),str.end());
-         int len=str.length();
-         for(int i=len-1;i>=0;i--)
-         {
-             if(str[i]%2==0)
-             {
-                 swap(str[i],str[len-1]);
-                 break;
-             }
-         }
-         sort(str.begin(),str.end()-1,greater<int>());
-         return str;
+    string LargestEven(string s){
+        sort(s.begin(), s.end(), greater<char>());
+
+    // Step 2: Find the first even digit from the end of the string
+    int i = s.size() - 1;
+    while (i >= 0) {
+        if (int(s[i]) % 2 == 0) { // Check if the character is an even digit
+            // Step 3: Swap the first even digit found with the last character in the string
+            swap(s[i], s[s.size() - 1]);
+            break; // Exit the loop after swapping
+        }
+        i--; // Move to the previous character
+    }
+
+    // Step 4: Sort the string again, excluding the last character (which is the first even digit)
+    sort(s.begin(), s.end() - 1, greater<char>());
+
+    // Step 5: Return the modified string with the largest even number formed
+    return s;
     }  
 };
 
