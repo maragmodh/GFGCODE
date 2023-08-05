@@ -54,31 +54,21 @@ int main()
 
 int countTriplets(struct Node* head, int x) 
 { 
-     vector<int> vec;
-    while(head!=NULL)
-    {
-       vec.emplace_back(head->data);
-       head=head->next;
-    }
-    sort(vec.begin(),vec.end());
-    int count=0;
-    for(int i=vec.size()-1;i>=2;i--){
-    int a=0;
-    int b=i-1;
-    while(a<b)
-    {
-        int sum=vec[a]+vec[b]+vec[i];
-        if(sum==x)
-        {
-           count++;
-            a++;
-            b--;
+     unordered_set<int> s;
+    int ans = 0;
+    
+    while (head != nullptr) {
+        Node* temp = head->next;
+        while (temp != nullptr) {
+            int left = x - head->data - temp->data;
+            if (s.count(left)) {
+                ans++;
+            }
+            temp = temp->next;
         }
-        else if(sum<x)
-        a++;
-        else
-        b--;
+        s.insert(head->data);
+        head = head->next;
     }
-    }
-   return count;
+    
+    return ans;
 } 
