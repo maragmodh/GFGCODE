@@ -41,16 +41,16 @@ class Solution{
 public:
     int getNthFromLast(Node *head, int n)
     {
-            Node* temp = head;
+        Node* temp = head;
        int count = 0;
        while(temp != NULL){
            count++;
            temp = temp->next;
        }
        if(count<n) return -1;
-       int node = count - n;
+       int a = count - n;
        temp = head;
-       for(int i=0;i<node;i++){
+       for(int i=0;i<a;i++){
               temp = temp->next;
        } 
        return temp->data;
