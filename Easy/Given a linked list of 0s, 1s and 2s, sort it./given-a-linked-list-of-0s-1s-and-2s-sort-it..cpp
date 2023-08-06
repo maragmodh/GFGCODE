@@ -35,18 +35,14 @@ class Solution
     //Function to sort a linked list of 0s, 1s and 2s.
     Node* segregate(Node *head) {
         int one =0, two=0,zero = 0;
-        
         Node* temp = head;
         while(temp != NULL ){
-            if( temp->data == 0){
+            if( temp->data == 0)
                 zero++;
-            }
-            else if( temp->data == 1){
+            else if(temp->data==1)
                 one++;
-            }
-            else if(temp ->data == 2) {
+            else if(temp->data==2)
                 two++;
-            }
             temp = temp->next;
         }
         
@@ -66,7 +62,6 @@ class Solution
             }
         }
         return head;
-        
     }
 };
 
