@@ -8,15 +8,13 @@ class Solution{
   public:
     vector<int> removeDuplicate(vector<int>& arr, int n)
     {
-        // code here
-        int a[100]={0};
-        vector<int>v;
+        vector<int> v;
         for(int i=0;i<n;i++){
-            a[arr[i]]++;
-            if(a[arr[i]]==1)
-                v.push_back(arr[i]);
+          auto it=find(v.begin(),v.end(),arr[i]);
+          if(it==v.end())
+              v.push_back(arr[i]);
         }
-        return v;
+       return v;
     }
 };
 
