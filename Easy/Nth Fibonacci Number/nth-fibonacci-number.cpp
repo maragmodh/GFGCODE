@@ -22,12 +22,13 @@ class Solution {
     }
 };
 
+
 //{ Driver Code Starts.
 int main() {
     int t;
     cin >> t;
     while (t--) {
-        long long int n;
+        int n;
         cin >> n;
         Solution ob;
         cout << ob.nthFibonacci(n) << endl;
