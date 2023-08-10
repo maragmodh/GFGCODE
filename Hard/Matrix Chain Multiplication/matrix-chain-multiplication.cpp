@@ -9,28 +9,27 @@ using namespace std;
 
 class Solution{
 public:
-    int solvemem(int i,int j, int arr[],vector<vector<int>>&dp){
+    int solvemem(int i,int j, int arr[],vector<vector<int>>&dp,int mini){
         if(i==j)
             return 0;
         if(dp[i][j]!=-1)
             return dp[i][j];
-        int mini = INT_MAX;
         for(int k=i;k<j;k++){
-            int steps = arr[i-1] * arr[k] *arr[j]+solvemem(i,k,arr,dp)+solvemem(k+1,j,arr,dp);
-            if(steps <mini)
-                mini = steps;
+            int steps = arr[i-1] * arr[k] *arr[j]+solvemem(i,k,arr,dp,mini)+solvemem(k+1,j,arr,dp,mini);
+            mini = min(mini,steps);
         }
-        return dp[i][j]=mini;
+        return dp[i][j] = mini;
     }
     int matrixMultiplication(int N, int arr[])
     {
         // code here
-        // int mini = INT_MIN;
+        int mini = INT_MAX;
         vector<vector<int>>dp(N,vector<int>(N,-1));
-        return solvemem(1,N-1,arr,dp);
+        return solvemem(1,N-1,arr,dp,mini);
         
     }
 };
+
 
 //{ Driver Code Starts.
 
