@@ -6,27 +6,28 @@ using namespace std;
 
 // } Driver Code Ends
 //User function template for C++
-// class Solution{
-// public:
-    const int mod=1e9+7;
 class Solution{
 public:
-    ll help(int n,vector<int>&dp){
-        if(n<=0) return 0;
-        if(n==1 || n==2) 
-            return n+1;
-        if(n==3) 
-            return 5;
-        if(dp[n]!=-1) 
-            return dp[n];
-        int ans=(help(n-2,dp)+help(n-1,dp))%mod;
-        return dp[n]=ans;
+	// #define ll long long
+	ll Aditya(int index,vector<int>&dp){
+        if(index>=dp.size()){
+            return 1;
+        }
+        if(dp[index]!=-1){
+            return dp[index];
+        }
+        int take=Aditya(index+2,dp);
+        int nottake=Aditya(index+1,dp);
+        return dp[index]=(take+nottake)%1000000007;
     }
+    
     ll countStrings(int n) {
-        vector<int> dp(n+10,-1);
-        return help(n,dp);
+        // code here
+        vector<int>dp(n,-1);
+        return Aditya(0,dp);
     }
 };
+
 
 //{ Driver Code Starts.
 
