@@ -98,6 +98,8 @@ int main()
 // } Driver Code Ends
 
 
+
+
 /* Tree node structure  used in the program
  struct Node
  {
@@ -115,5 +117,5 @@ int getSize(Node* node)
     int left = getSize(node->left);
     int right=getSize(node->right);
     
-    return (1+left+right);
+    return 1+left+right;
 }
