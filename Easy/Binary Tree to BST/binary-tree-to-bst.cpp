@@ -109,32 +109,9 @@ struct Node
 
 class Solution{
   public:
-    // // The given root is the root of the Binary Tree
-    // // Return the root of the generated BST
-    // void inorder(Node * root ,vector<int> &in){
-    //     if(!root){
-    //         return ;
-    //     }
-    //     inorder(root->left,in);
-    //     in.push_back(root->data);
-    //     inorder(root->right,in);
-    // }
-    // void bst(vector<int>&nums,int i,int j){
-    //     if(i>j)
-    //         return NULL;
-    //     int mid = (i+j)/2;
-    //     Node* nod = new Node(v[mid]);
-    //     nod->left = bst(node->left,i,mid-1);
-    //     nod->right = bst(node->right,mid+1,j);
-    // }
-    // Node *binaryTreeToBST (Node *root)
-    // {
-    //     //Your code goes here
-    //     vector<int> inorderval;
-    //     inorder(root,inorderval);
-    //     sort(inorderval.begin(), inorderval.end());        
-    //     return bst(inorderval,0,inorderval.size()-1);
-    void inorder(Node *root ,vector<int> &in){
+    // The given root is the root of the Binary Tree
+    // Return the root of the generated BST
+    void inorder(Node * root ,vector<int> &in){
         if(!root){
             return ;
         }
@@ -142,24 +119,25 @@ class Solution{
         in.push_back(root->data);
         inorder(root->right,in);
     }
-    Node* sortedArrayToBST(vector<int> arr, int start, int end)
-    {
-    if (start > end)
-        return NULL;
-    int mid = (start + end) / 2;
-    Node* root = new Node(arr[mid]);
-    root->left = sortedArrayToBST(arr, start, mid - 1);
-    root->right = sortedArrayToBST(arr, mid + 1, end);
-    return root;
+    Node* bst(vector<int>&nums,int i,int j){
+        if(i>j)
+            return NULL;
+        int mid = (i+j)/2;
+        Node* nod = new Node(nums[mid]);
+        nod->left = bst(nums,i,mid-1);
+        nod->right = bst(nums,mid+1,j);
+        // return root;
     }
     Node *binaryTreeToBST (Node *root)
     {
+        //Your code goes here
         vector<int> inorderval;
         inorder(root,inorderval);
         sort(inorderval.begin(), inorderval.end());        
-        return sortedArrayToBST(inorderval,0,inorderval.size()-1);
+        return bst(inorderval,0,inorderval.size()-1);
     }
 };
+
 
 //{ Driver Code Starts.
 int main()
