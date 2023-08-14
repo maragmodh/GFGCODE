@@ -56,7 +56,8 @@ struct Node {
 };
 
 */
-
+class Solution
+{
 struct Node* reverseList(struct Node *head)
     {
         Node *curr = head;
@@ -71,8 +72,7 @@ struct Node* reverseList(struct Node *head)
         return prev;
     }
     
-class Solution
-{
+
     public:
     Node* addTwoLists(struct Node* l1, struct Node* l2)
     {
