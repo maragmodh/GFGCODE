@@ -11,12 +11,23 @@ class Solution
     //Function to find the smallest positive number missing from the array.
     int missingNumber(int arr[], int n) 
     { 
-        sort(arr, arr+n);
-        int num = 1;
-        for (int i = 0; i < n; i++)
-            if (arr[i] == num) 
-                num++;
-        return num;
+        int mx=INT_MIN;
+        for(int i=0;i<n;i++) {
+            if(arr[i]<=0)
+                arr[i]=0;
+            mx=max(mx,arr[i]);
+        }
+        mx=mx+1;
+        for(int i=0;i<n;i++) {
+            if(arr[i]>0) {
+                int ind=arr[i]%mx-1;
+                if(ind<n && ind>=0) arr[ind]+=mx;
+            }
+        }
+        for(int i=0;i<n;i++)
+            if(arr[i]<mx)
+                return i+1;
+        return n+1;
     } 
 };
 
