@@ -13,20 +13,28 @@ class Solution{
      // Function to find majority element in the array
     // a: input array
     // size: size of input array
-    int majorityElement(int a[], int size)
+    int majorityElement(int arr[], int size)
     {
-        unordered_map<int,int>m;
-        for(int i=0;i<size;i++)
-            m[a[i]]++;
-        for(int i=0;i<size;i++)
-        {
-            if(m[a[i]]>(size/2))
-                return a[i];
+        int majele=0,c=0,c1=0;
+        for(int i=0;i<size;i++){
+            if(c==0)
+                majele = arr[i];
+            if(arr[i]==majele)
+                c++;
+            else
+                c--;
         }
+        for(int i=0;i<size;i++){
+            if(arr[i]==majele)
+                c1++;
+        }
+        if(c1>size/2)
+            return majele;
         return -1;
         
     }
 };
+
 
 //{ Driver Code Starts.
 
