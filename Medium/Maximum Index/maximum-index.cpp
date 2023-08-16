@@ -11,10 +11,13 @@ public:
         v_min[0] = arr[0];
         v_max[n - 1] = arr[n - 1];
         for (int i = 1; i < n; i++) {
+    //minimum values encountered so far while moving left to right.
         v_min[i] = min(v_min[i - 1], arr[i]);
+    //maximum values encountered so far while moving right to left.
         v_max[n - i - 1] = max(v_max[n - i], arr[n - i - 1]);
         }
         int ans = 0, i = 0, j = 0;
+// Compare the minimum and maximum values at different positions to find the maximum index difference.
         while (i < n && j < n) {
             if (v_min[i] <= v_max[j]) {
             ans = max(ans, j - i);
@@ -27,6 +30,7 @@ public:
     }
 
 };
+
 
 
 //{ Driver Code Starts.
