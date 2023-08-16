@@ -10,26 +10,28 @@ class Solution
     //Function to count the number of possible triangles.
     int findNumberOfTriangles(int arr[], int n)
     {
-        // code here
-        int triangles=0;
-        sort(arr,arr+n,greater<int>());
-        for(int i=0;i<n-2;i++){
-            int maxSide=arr[i];
-            int left=i+1,right=n-1;
-            while(left<right){
-                if(arr[left]+arr[right]>maxSide){
-    // If the sum of two smaller sides is greater than the largest side,
-    // it forms a valid triangle.
-    // Since the array is sorted, all elements between l and r will also
-    // satisfy the condition.
-                    triangles+=right-left;
-                    left++;
+        sort(arr, arr + n); // Sorting the array in ascending order
+        int cnt = 0;
+        for (int i = n-1; i > 1; i--)
+        {
+            int l = 0;
+            int r = i - 1;
+            while (l < r)
+            {
+                if (arr[l] + arr[r] > arr[i])
+                {
+                    // If the sum of two smaller sides is greater than the largest side,
+                    // it forms a valid triangle.
+                    // Since the array is sorted, all elements between l and r will also
+                    // satisfy the condition.
+                    cnt += (r - l);
+                    r--;
                 }
                 else
-                    right--;
+                    l++;
             }
         }
-        return triangles;
+        return cnt;
     }
 };
 
