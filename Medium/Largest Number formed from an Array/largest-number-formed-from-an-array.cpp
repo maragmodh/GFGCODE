@@ -11,14 +11,10 @@ public:
 	// The main function that returns the arrangement with the largest value as
 	// string.
 	// The function accepts a vector of strings
-	static bool cmp (string a, string b){
+	static int cmp (string a, string b){
         string s1 = a + b;
         string s2 = b + a;
-        
-        if(s1 > s2)
-            return true;
-        else 
-            return false;
+        return s1>s2;
     }
 	string printLargest(vector<string> &arr) {
 	    // code here
@@ -30,6 +26,7 @@ public:
 	    return str;
 	}
 };
+
 
 //{ Driver Code Starts.
 
