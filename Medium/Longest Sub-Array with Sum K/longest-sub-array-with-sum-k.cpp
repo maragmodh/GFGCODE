@@ -6,25 +6,26 @@ using namespace std;
 // } Driver Code Ends
 class Solution{
     public:
-    int lenOfLongSubarr(int A[],  int N, int K) 
+    int lenOfLongSubarr(int A[],  int N, int k) 
     { 
         unordered_map<int,int> m;
         m[0]=-1;
         int sum=0,ans=0;
         for (int i=0;i<N;i++){
             sum+=A[i];
-            int x=sum-K;
-            //checking if remaining sum exists
-            if(m.find(x)!=m.end()) 
-                ans=max(ans,i-m[x]);
-            //keeping track of prefix sum
-            if(m.find(sum)==m.end()) 
-                m[sum]=i;
+            if(sum==k)
+                ans = i+1;
+            else if(m.find(sum-k) != m.end())
+                ans = max(ans,i-m[sum-k]);
+            if(m.find(sum)==m.end())
+                m[sum] = i;
+                
         }
         return ans;
     } 
 
 };
+
 
 //{ Driver Code Starts.
 
