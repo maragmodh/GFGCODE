@@ -8,34 +8,27 @@ using namespace std;
 //User function template for C++
 class Solution{
 public:
-//SLIDING WINDOW
 	int search(string pat, string txt) {
-	     int m=pat.length();
-	    int n=txt.length();
-	    map<char,int>mm;
-	    map<char,int>mtemp;
-	    for(int i=0; i<m; i++)
-	        mm[pat[i]]++;
-	    int i=0,j=0,count=0,ans=0;
-	    while(j<n)
-	    {
-	        mtemp[txt[j]]++;
-	        if(j-i+1< m)
-	            j++;
-	        else
-	        {
-	            if(mtemp==mm)
-	                count++;
-	            if(mtemp[txt[i]]>1)
-	                mtemp[txt[i]]--;
-	            else
-	                mtemp.erase(txt[i]);
-	            i++;
-	            j++;
-	        }
+	    vector<int> mp1(256, 0), mp2(256, 0);
+	    int ans = 0;
+	    int i = 0, j = 0;
+	    while(i < pat.size()) {
+	        mp1[pat[i]]++;
+	        mp2[txt[i]]++;
+	        i++;
 	    }
-	    return count;
+	    while(i < txt.size()) {
+	        if(mp1 == mp2)
+	            ans++;
+	        mp2[txt[i]]++;
+	        i++;
+	        mp2[txt[j]]--;
+	        j++;
+	    }
+	    if(mp1 == mp2) ans++;
+	    return ans;
 	}
+
 };
 
 //{ Driver Code Starts.
