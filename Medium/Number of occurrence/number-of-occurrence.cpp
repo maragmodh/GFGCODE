@@ -13,8 +13,6 @@ public:
 	int count(int arr[], int n, int x) {
 	    // code here
 	    auto fst=lower_bound(arr,arr+n,x);
-        // if(fst==arr+n)
-        //     return 0;
         auto lst=upper_bound(arr,arr+n,x);
         int fidx=fst-arr;
         int lidx=lst-arr;
