@@ -60,19 +60,13 @@ class Solution
 {
 struct Node* reverseList(struct Node *head)
     {
-        Node *curr = head;
-        Node *prev = NULL, *next = NULL;
-        
-        while(curr){
-            next = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr = next;
-        }
-        return prev;
+        if(head==NULL || head->next==NULL)
+            return head;
+        Node* temp = reverseList(head->next);
+        head->next->next = head;
+        head->next = NULL;
+        return temp;
     }
-    
-
     public:
     Node* addTwoLists(struct Node* l1, struct Node* l2)
     {
@@ -105,6 +99,7 @@ struct Node* reverseList(struct Node *head)
         return reverseList(head->next);
     }
 };
+
 
 
 //{ Driver Code Starts.
