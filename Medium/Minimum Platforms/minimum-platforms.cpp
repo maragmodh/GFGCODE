@@ -15,16 +15,19 @@ class Solution{
     	// Your code here
     	sort(arr,arr+n);
     	sort(dep,dep+n);
-    	int i=1,j=0,platform=1;
+    	int ans=1,j=0;
+    	
     	for(int i=1;i<n;i++){
+    	   // int j = i+1;
     	    if(arr[i]<=dep[j])
-    	        platform++;
+    	        ans++;
     	    else
     	        j++;
     	}
-    	return platform;
+    	return ans;
     }
 };
+
 
 
 //{ Driver Code Starts.
