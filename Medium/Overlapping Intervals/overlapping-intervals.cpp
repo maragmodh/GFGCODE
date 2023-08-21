@@ -5,23 +5,28 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
 public:
-    vector<vector<int>> overlappedInterval(vector<vector<int>>& intervals) {
+    vector<vector<int>> overlappedInterval(vector<vector<int>>& arr) {
          // Code here
-         int n=intervals.size();
-         sort(intervals.begin(),intervals.end());
-         int s=intervals[0][0],e=intervals[0][1];
-         vector<vector<int>>ans;
-         for(int i=1;i<n;i++){
-             if(intervals[i][0]<=e)e=max(e,intervals[i][1]);
-             else{
-                 ans.push_back({s,e});
-                 s=intervals[i][0],e=intervals[i][1];
-             }
-         }
-         ans.push_back({s,e});
-         return ans;
+    sort(arr.begin(),arr.end());
+    vector<vector<int>> ans;
+    ans.push_back({arr[0][0],arr[0][1]});
+    int idx=0;
+    for(int i=1;i<arr.size();i++)
+    {
+        if(ans[idx][1] >= arr[i][0])
+        {
+            ans[idx][1]=max(ans[idx][1],arr[i][1]);
+        }
+        else
+        {
+            ans.push_back({arr[i][0],arr[i][1]});
+            idx++;
+        }
     }
+    return ans;
+}
 };
+
 
 //{ Driver Code Starts.
 int main(){
