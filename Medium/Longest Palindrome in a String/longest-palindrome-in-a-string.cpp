@@ -7,13 +7,14 @@ using namespace std;
 class Solution {
   public:
     string longestPalin (string S) {
-        int start = 0, end = 1;
+    int start = 0, end = 1; //the start and end indices of the longest palindrome
     int low,high;
     for(int i = 0; i < S.length(); i++){
-        // odd part
+        // odd part : Expand around the current character as the center
          low = i - 1;
          high = i;
         while(low>=0 && high<S.length() && S[low] == S[high]){
+        // Update the start and end indices if a longer palindrome is found
             if(high - low + 1 > end){
                 end = high - low + 1; 
                 start = low;
@@ -37,6 +38,7 @@ class Solution {
      return S.substr(start,end);
 }
 };
+
 
 //{ Driver Code Starts.
 
