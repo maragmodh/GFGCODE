@@ -39,14 +39,14 @@ class Solution
         for(int i=0;i<n;i++)
             maxdeadline = max(maxdeadline,arr[i].dead); 
             
-        vector<int>schedule(maxdeadline+1,-1);
+        vector<int>schedule(maxdeadline,-1);
         int count=0;
         int maxProfit = 0;
         for(int i=0;i<n;i++){
             int currid = arr[i].id;
             int currdead = arr[i].dead;
             int currpro = arr[i].profit;
-            for(int k=currdead;k>0;k--){
+            for(int k=currdead-1;k>=0;k--){
                 if(schedule[k]==-1){
                    count++;
                    maxProfit += currpro;
@@ -61,6 +61,7 @@ class Solution
         return ans;
     } 
 };
+
 
 //{ Driver Code Starts.
 // Driver program to test methods 
