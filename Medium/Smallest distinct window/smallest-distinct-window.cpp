@@ -8,7 +8,7 @@ class Solution{
     public:
     int findSubString(string str)
     {
-        unordered_set<char>s;
+        unordered_set<int>s;
         for(int i=0;i<str.length();i++)
             s.insert(str[i]);
         unordered_map<char,int>mp;
@@ -28,6 +28,7 @@ class Solution{
         return ans;
     }
 };
+
 
 //{ Driver Code Starts.
 // Driver code
