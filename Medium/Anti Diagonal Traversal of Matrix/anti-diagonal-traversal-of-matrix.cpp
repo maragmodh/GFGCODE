@@ -8,36 +8,28 @@ class Solution {
   public:
     vector<int> antiDiagonalPattern(vector<vector<int>>A) 
     {
-        // Code here
-        vector<int>a;
+        vector<int> v;
         int n = A.size();
-        int row=0,col=0;
-        while(col<n){
-            int r=row;
-            int c=col;
-            while(r<n and c>=0){
-                a.push_back(A[r][c]);
-                r++;
-                c--;
-            }
-            col++;
+        for(int i=0;i<n;i++)
+        {
+            int k = i;
+            int j = 0;
+            while(k>=0 && j<n &&k<n)
+                v.push_back(A[j++][k--]);
         }
-        col--;
-        row=1;
-        while(row<n){
-            int r=row;
-            int c=col;
-            while(r<n and c>=0){
-                a.push_back(A[r][c]);
-                r++;
-                c--;
-            }
-            row++;
+        int k = n-1;
+        int i = 1;
+        while(i<n)
+        {
+            int l = k; 
+            for(int j = i;j<n;j++)
+                v.push_back(A[j][l--]);
+            i++;
         }
-        return a;
-        
+        return v;
     }
 };
+
 
 //{ Driver Code Starts.
 int main() {
