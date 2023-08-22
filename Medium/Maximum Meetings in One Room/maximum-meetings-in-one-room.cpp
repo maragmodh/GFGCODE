@@ -16,9 +16,8 @@ public:
     vector<int> maxMeetings(int N,vector<int> &S,vector<int> &F){
         // vector<pair<int,int>>v;
         vector<pair<pair<int,int>,int>>v;
-        for(int i=0;i<N;i++){
+        for(int i=0;i<N;i++)
             v.push_back({{S[i],F[i]},i+1});
-        }
         sort(v.begin(),v.end(),myComp);
         vector<int>ans;
         ans.push_back(v[0].second);
@@ -33,6 +32,7 @@ public:
         return ans;
     }
 };
+
 
 //{ Driver Code Starts.
 
