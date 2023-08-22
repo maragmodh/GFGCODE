@@ -16,13 +16,14 @@ class Solution{
         int mini = INT_MAX ;
         for(int i = 0 ; i<a.size();i++){
           sum+=a[i];
-          mini= min(sum,mini) ;
+          mini= min(sum,mini);
           if(sum>0)
               sum = 0;
       }
       return mini;
   }
 };
+
 
 
 //{ Driver Code Starts.
