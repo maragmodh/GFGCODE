@@ -1,4 +1,4 @@
-<h2><a href="https://practice.geeksforgeeks.org/problems/gcd-of-array0614/1?page=1&sortBy=submissions&searchQuery=gcd">GCD of Array</a></h2><h3>Difficulty Level : Basic</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given an array of N positive integers, find GCD of all the array elements.</span></p>
+<h2><a href="https://practice.geeksforgeeks.org/problems/gcd-of-array0614/1?page=3&difficulty[]=-1&status[]=solved&sortBy=submissions">GCD of Array</a></h2><h3>Difficulty Level : Basic</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given an array of N positive integers, find GCD of all the array elements.</span></p>
 
 <p><br>
 <span style="font-size:18px"><strong>Example 1:</strong></span></p>
