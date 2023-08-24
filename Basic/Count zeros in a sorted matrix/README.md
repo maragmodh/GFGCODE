@@ -1,4 +1,4 @@
-<h2><a href="https://practice.geeksforgeeks.org/problems/count-zeros-in-a-sorted-matrix/1?page=1&sortBy=submissions&searchQuery=MATRIX">Count zeros in a sorted matrix</a></h2><h3>Difficulty Level : Basic</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given a <strong>N X N&nbsp;</strong>binary Square Matrix where each row and column of the matrix is sorted in ascending order. Find the total number of <strong>zeros</strong> present in the matrix.</span></p>
+<h2><a href="https://practice.geeksforgeeks.org/problems/count-zeros-in-a-sorted-matrix/1?page=3&difficulty[]=-1&status[]=solved&sortBy=submissions">Count zeros in a sorted matrix</a></h2><h3>Difficulty Level : Basic</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given a <strong>N X N&nbsp;</strong>binary Square Matrix where each row and column of the matrix is sorted in ascending order. Find the total number of <strong>zeros</strong> present in the matrix.</span></p>
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
