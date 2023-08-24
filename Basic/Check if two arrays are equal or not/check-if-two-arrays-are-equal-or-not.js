@@ -66,20 +66,12 @@ function main() {
 class Solution {
     //Function to check if two arrays are equal or not.
     check(A,B,N){
-        const m = new Map();
-        for(let i=0; i<N; i++){
-            if(m.has(A[i]))
-                m.set(A[i], m.get(A[i]) + 1);
-            else
-                m.set(A[i], 1);
+        const m = {};
+        for(let i=0;i<N;i++){
+            m[A[i]] = (m[A[i]] || 0) + 1; // Initialize and increment count
+        m[B[i]] = (m[B[i]] || 0) - 1;
         }
-        for(let i=0; i<N; i++){
-            if(m.has(B[i]))
-                m.set(B[i], m.get(B[i]) - 1);
-            else 
-                m.set(B[i], -1);
-        }
-        for(let [key, value] of m){
+        for (const value of Object.values(m)) {
             if(value !== 0)
                 return false;
         }
