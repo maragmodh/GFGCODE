@@ -1,31 +1,60 @@
 //{ Driver Code Starts
-#include <bits/stdc++.h>
-using namespace std;
+//Initial Template for javascript
 
-int convertFive(int n);
+'use strict';
 
-// Driver program to test above function
-int main() {
-    int T;
-    cin >> T;
-    while (T--) {
-        int n;
-        cin >> n;
-        cout << convertFive(n) << endl;
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', inputStdin => {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', _ => {
+    inputString = inputString.trim().split('\n').map(string => {
+        return string.trim();
+    });
+    
+    main();    
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+function main() {
+    let t = parseInt(readLine());
+    for(let i=0;i<t;i++)
+    {
+        let input_line = readLine().split(' ');
+        let n = parseInt(input_line[0]);
+        
+        let obj = new Solution();
+        
+        let ans = obj.convertFive(n);
+        console.log(ans);
     }
 }
 // } Driver Code Ends
 
 
-/*you are required to complete this method*/
-int convertFive(int n) {
-    // Your code here
-   string str = to_string(n);
-     for(int i=0;i<str.size();i++){
-          if(str[i]=='0'){
-              str[i]='5';
-          }
-     }
-     int ans=stoi(str);
-     return ans;
+//User function Template for javascript
+
+
+/**
+ * @param {number} num
+ * @returns {number}
+*/
+class Solution {
+    
+    convertFive(num)
+    {
+        const numStr = num.toString();
+    const resultStr = numStr.replace(/0/g, '5');
+    return resultStr;
+    }
+    
 }
