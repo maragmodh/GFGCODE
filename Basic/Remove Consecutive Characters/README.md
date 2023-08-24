@@ -1,4 +1,4 @@
-<h2><a href="https://practice.geeksforgeeks.org/problems/consecutive-elements2306/1">Remove Consecutive Characters</a></h2><h3>Difficulty Level : Basic</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given a string <strong>S</strong>. For each index i(1&lt;=i&lt;=N-1), erase it if s[i] is equal to s[i-1] in the string.</span></p>
+<h2><a href="https://practice.geeksforgeeks.org/problems/consecutive-elements2306/1?page=2&difficulty[]=-1&status[]=solved&sortBy=submissions">Remove Consecutive Characters</a></h2><h3>Difficulty Level : Basic</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given a string <strong>S</strong>. For each index i(1&lt;=i&lt;=N-1), erase it if s[i] is equal to s[i-1] in the string.</span></p>
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
