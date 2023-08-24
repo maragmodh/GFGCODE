@@ -1,50 +1,81 @@
 //{ Driver Code Starts
+//Initial Template for javascript
 
-#include<bits/stdc++.h>
+'use strict';
 
-using namespace std;
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
 
+let inputString = '';
+let currentLine = 0;
 
-// } Driver Code Ends
-//User function template for C++
-class Solution{
-public:	
-	/* Function to replace every element with the
-	next greatest element */
-	void nextGreatest(int arr[], int n) {
-	    // code here
-	    int last=-1;
-        for(int i=n-1;i>=0;i--)
-        {
-            int tmp=arr[i];
-            arr[i]=last;
-            last=max(last,tmp);
-        }
-	}
+process.stdin.on('data', inputStdin => {
+    inputString += inputStdin;
+});
 
+process.stdin.on('end', _ => {
+    inputString = inputString.trim().split('\n').map(string => {
+        return string.trim();
+    });
+    
+    main();
+});
 
-};
-
-//{ Driver Code Starts.
-
-int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        int n, l, r;
-        cin >> n;
-        int arr[n];
-        for (int i = 0; i < n; i++) {
-            cin >> arr[i];
-        }
-        Solution ob;
-        ob.nextGreatest(arr, n);
-        for (int i = 0; i < n; i++) {
-            cout << arr[i] << " ";
-        }
-        cout << "\n";
-    }
-    return 0;
+function readLine() {
+    return inputString[currentLine++];
 }
 
+function printList(res,n){
+    let s="";
+    for(let i=0;i<n;i++){
+        s+=res[i];
+        s+=" ";
+    }
+    console.log(s);
+}
+
+
+function main() {
+    let t = parseInt(readLine());
+    let i = 0;
+    for(;i<t;i++)
+    {
+        let n = parseInt(readLine());
+        let arr = new Array(n);
+        let input_ar1 = readLine().split(' ').map(x=>parseInt(x));
+        for(let i=0;i<n;i++){
+            arr[i] = input_ar1[i];
+        }
+        let obj = new Solution();
+        obj.nextGreatest(arr, n);
+        printList(arr,arr.length);
+    }
+}// } Driver Code Ends
+
+
+
+
 // } Driver Code Ends
+
+
+//User function Template for javascript
+
+
+/**
+ * @param {number[]} arr
+ * @param {number} n
+ * @returns {number}
+*/
+
+class Solution{
+    nextGreatest(arr,n){
+        let last=-1;
+        for(let i=n-1;i>=0;i--)
+        {
+            let tmp=arr[i];
+            arr[i]=last;
+            last=Math.max(last,tmp);
+        }
+    }
+}
+
