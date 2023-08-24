@@ -1,4 +1,4 @@
-<h2><a href="https://practice.geeksforgeeks.org/problems/lcm-and-gcd4516/1?page=1&sortBy=submissions&searchQuery=gcd">LCM And GCD</a></h2><h3>Difficulty Level : Basic</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given two numbers<strong> A </strong>and<strong> B. </strong>The task is to find out their LCM and GCD.</span></p>
+<h2><a href="https://practice.geeksforgeeks.org/problems/lcm-and-gcd4516/1">LCM And GCD</a></h2><h3>Difficulty Level : Basic</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given two numbers<strong> A </strong>and<strong> B. </strong>The task is to find out their LCM and GCD.</span></p>
 
 <p>&nbsp;</p>
 
