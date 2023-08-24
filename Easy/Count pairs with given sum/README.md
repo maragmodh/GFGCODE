@@ -1,4 +1,4 @@
-<h2><a href="https://practice.geeksforgeeks.org/problems/count-pairs-with-given-sum5022/1?page=1&curated[]=7&sortBy=submissions">Count pairs with given sum</a></h2><h3>Difficulty Level : Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given an array&nbsp;of <strong>N</strong> integers, and an integer&nbsp;<strong>K</strong>, find the number of pairs of elements&nbsp;in the array whose sum is equal to <strong>K</strong>.</span></p>
+<h2><a href="https://practice.geeksforgeeks.org/problems/count-pairs-with-given-sum5022/1?page=1&category[]=Hash&sortBy=submissions">Count pairs with given sum</a></h2><h3>Difficulty Level : Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given an array&nbsp;of <strong>N</strong> integers, and an integer&nbsp;<strong>K</strong>, find the number of pairs of elements&nbsp;in the array whose sum is equal to <strong>K</strong>.</span></p>
 
 <p><br>
 <span style="font-size:18px"><strong>Example 1:</strong></span></p>
