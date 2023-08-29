@@ -8,27 +8,30 @@ class Solution{
     public:
     int findSubString(string str)
     {
-        unordered_set<int>s;
-        for(int i=0;i<str.length();i++)
-            s.insert(str[i]);
-        unordered_map<char,int>mp;
-        int i=0,j=0;
+        unordered_set<char> s;
+        for(char c: str)
+            s.insert(c);
+        int n = s.size();
+        unordered_map<char, int> m;
         int ans = str.size();
-        while(i<str.length()) {
-            mp[str[i]]++;
-            if(mp.size()==s.size()) {
-                while(mp[str[j]]>1) {
-                    mp[str[j]]--;
-                    j++;
-                }
-                ans = min(ans,i-j+1);
+        int i=0, j=0;
+        while(i<str.size())
+        {
+            m[str[i]]++;
+            if(m.size()==n)
+            {
+                 while(m[str[j]]>1)
+                 {
+                     m[str[j]]--;
+                     j++;
+                 }
+                 ans= min(ans, i-j+1);
             }
             i++;
         }
-        return ans;
+        return ans;  
     }
 };
-
 
 //{ Driver Code Starts.
 // Driver code
