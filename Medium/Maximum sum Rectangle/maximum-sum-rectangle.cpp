@@ -9,23 +9,40 @@ using namespace std;
 
 class Solution {
   public:
+    int kadane(vector<int> &v,int n){
+        int maxsum = INT_MIN;
+        int sum = 0;
+        for(int i = 0;i<n;i++){
+            sum+=v[i];
+            maxsum = max(sum,maxsum);
+            if(sum<0)
+                sum = 0;
+        }
+        return maxsum;
+    }
     int maximumSumRectangle(int R, int C, vector<vector<int>> M) {
-        int ans = INT_MIN;
-        for(int i=0;i<C;i++){
-            int dp[R]={0};
-            for(int j=i;j<C;j++){
-                int curr = 0;
-                for(int r=0;r<R;r++){
-                   dp[r] += M[r][j];
-                   curr += dp[r];
-                   if(curr>ans) ans = curr;
-                   if(curr<0) curr = 0;
-               }
-           }
-       }
-       return ans;
+        // code here
+        //int max = maxsumsubArray(arr[0], arr[0].length);
+        int maxsum = INT_MIN;
+        for(int i = 0;i<R;i++){
+    // Create a vector v to store the cumulative sum of elements in each column
+            vector<int>v(C);
+            //adding more rows into one row
+            for(int j=i;j<R;j++){
+                for(int k = 0;k<C;k++){
+        // Add the elements of the current row to the cumulative sum of each column
+                    v[k]+=M[j][k];
+                }
+                int sum = kadane(v,C);
+                if(sum>maxsum){
+                    maxsum = sum;
+                }
+            }
+        }
+        return maxsum;
     }
 };
+
 
 
 //{ Driver Code Starts.
