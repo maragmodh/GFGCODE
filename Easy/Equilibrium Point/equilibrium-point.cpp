@@ -19,10 +19,12 @@ class Solution{
             if(leftSum == sum)
                 return i+1;
             leftSum += arr[i];
+            
         }
         return -1;
     }
 };
+
 
 //{ Driver Code Starts.
 
