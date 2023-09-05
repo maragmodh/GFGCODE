@@ -11,26 +11,21 @@ using namespace std;
 class Solution {
   public:
     int binarysearch(int arr[], int n, int k) {
-        // code here
-        int st =0;
-        int mid=0;
-        int tgt = k;
-        int end=n-1;
-        while ( st <= end)  
-        {  
-        mid = ( st + end ) / 2;  
-        if (arr[mid] == tgt)  
-            return mid;
-        // check the value of target element is greater than the mid element' value  
-        else if ( tgt > arr[mid])  
-            st = mid + 1; // set the new value for st variable  
-        else 
-            end = mid - 1; // set the new value for end variable  
-    }  
-    // cout << " Number is not found. " << endl;  
-    return -1;  
+        int i=0;
+        int j=n-1;
+        while(i<=j){
+            int mid=i+(j-i)/2;
+            if(arr[mid]==k)
+               return mid;
+            else if(arr[mid]>k)
+                j=mid-1;
+            else 
+                i=mid+1;
+        }
+        return -1;
     }
 };
+
 
 //{ Driver Code Starts.
 int main() {
