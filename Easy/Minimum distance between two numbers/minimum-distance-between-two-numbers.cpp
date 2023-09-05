@@ -6,21 +6,21 @@ using namespace std;
 
 class Solution{
   public:
-    int minDist(int arr[], int n, int x, int y) {
-        // code here
-        int a = -1,b=-1,mini = INT_MAX;
-        for(int i=0;i<n;i++){
-            if(arr[i]==x)
-                a = i;
-            if(arr[i]==y)
-                b = i;
-            if(a!=-1 && b !=-1){
-                mini = min(mini,abs(a-b));
-            }
+    int minDist(int a[], int n, int x, int y) {
+        int p,q,mn=INT_MAX;
+        for(int i=0;i<n;i++)
+        {
+           if(a[i]==x)
+            p=i;
+           if(a[i]==y)
+            q=i;
+           
+           mn=min(abs(p-q), mn);
         }
-        if(a==-1 || b==-1)
-            return -1;
-        return mini;
+       if(mn>n)
+       return -1;
+       else
+       return mn;
     }
 };
 
