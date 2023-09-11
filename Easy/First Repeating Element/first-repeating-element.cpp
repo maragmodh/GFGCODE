@@ -11,20 +11,17 @@ class Solution {
   public:
     // Function to return the position of the first repeating element.
     int firstRepeated(int arr[], int n) {
-        // code here
-        set<int>s;
-        int a=0;
-        for(int i =n-1;i>=0;i--){
-            if(s.find(arr[i])!=s.end())
-                a=i+1;
-            else
-                s.insert(arr[i]);
+        unordered_map<int,int>mp;
+        for(int i=0;i<n;i++)
+            mp[arr[i]]++;
+        
+        for(int i=0;i<n;i++)
+        {
+            if(mp[arr[i]]>1)
+                return i+1;
         }
-        if(a==0)
-            return -1;
         
-        return a;
-        
+        return -1;
     }
 };
 
