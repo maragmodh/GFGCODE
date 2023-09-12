@@ -7,30 +7,30 @@ using namespace std;
 class Solution
 {
     public:    
-       vector <int> commonElements (int a[], int b[], int c[], int n1, int n2, int n3)
+       vector <int> commonElements (int A[], int B[], int C[], int n1, int n2, int n3)
         {
-            //code here.
-            vector<int> ans;
-            
-            int i = 0, j = 0, k = 0;
-            while(i < n1 && j < n2 && k < n3) {
-                if(a[i] == b[j] && a[i] == c[k]) {
-                    if(ans.empty() || ans.back() != a[i])
-                    ans.push_back(a[i]);
-                    i++;
-                    j++;
-                    k++;
-                } 
-                else if(a[i] <= b[j] && a[i] <= c[k])
-                    i++;
-                else if(b[j] <= a[i] && b[j] <= c[k])
-                    j++;
-                else
-                    k++;
+            unordered_map<int,int>mp,mp1;
+            vector<int>a1,b1;
+            for(int i=0;i<n1;i++)
+                mp[A[i]]++;
+            for(int i=0;i<n2;i++){
+                if(mp.find(B[i])!=mp.end()){
+                    a1.push_back(B[i]);
+                    mp.erase(B[i]);
+                }
             }
-            return ans;
+            for(int i=0;i<a1.size();i++)
+                mp1[a1[i]]++;
+            for(int i=0;i<n3;i++){
+                if(mp1.find(C[i])!=mp1.end()){
+                    b1.push_back(C[i]);
+                    mp1.erase(C[i]);
+                }
+            }
+            return b1;
         }
 };
+
 
 
 //{ Driver Code Starts.
