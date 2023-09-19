@@ -11,14 +11,18 @@ class Solution
     //Function to find the smallest positive number missing from the array.
     int missingNumber(int arr[], int n) 
     { 
-        sort(arr, arr+n);
-        int num = 1;
-        for (int i = 0; i < n; i++)
-            if (arr[i] == num) 
-                num++;
-        return num;
+        bool temp[n + 1] = {0};
+  for (int i = 0; i < n; i++) {
+    if (arr[i] > 0 && arr[i] <= n)
+      temp[arr[i]] = 1;
+  }
+  for (int i = 1; i <= n; i++)
+    if (!temp[i])
+      return i;
+  return n + 1;
     } 
 };
+
 
 //{ Driver Code Starts.
 
