@@ -3,48 +3,22 @@
 using namespace std;
 
 // } Driver Code Ends
-
-int firstOccur(int arr[], int n , int x){
-    int first = -1;
-    int low =0;
-    int high = n-1;
-    while(low <= high){ 
-        int mid = (low+ high) /2;
-        if(arr[mid] == x){
-            first = mid;
-            high = mid -1;
-        }
-        else if(arr[mid] < x)
-            low = mid + 1;
-        else
-            high = mid - 1;
-    }
-    return first;
-}
-int lastOccur(int arr[], int n , int x){
-    int last = -1;
-    int low =0;
-    int high = n-1;
-    while(low <= high){ 
-        int mid = (low+ high) /2;
-        if(arr[mid] == x){
-            last = mid;
-            low = mid + 1;
-        }
-        else if(arr[mid] < x)
-            low = mid + 1;
-        else
-            high = mid - 1;
-    }
-    return last;
-}
-vector<int> find(int arr[], int n , int x )
+class Solution
 {
-   int first = firstOccur(arr, n, x);
-   if(first == -1) return {-1,-1};
-   int last = lastOccur(arr, n, x);
-   return {first,last};
-}
+    public:
+    vector<int> find(int nums[], int n , int x )
+    {
+         vector<int> answer;
+    int lowerBound = lower_bound(nums, nums + n, x) - nums;
+    int upperBound = upper_bound(nums, nums + n, x) - nums;
+    answer.push_back(lowerBound);
+    if(lowerBound != upperBound){
+        answer.push_back(upperBound - 1);
+        return answer;
+    }
+    return {-1, -1};
+    }
+};
 
 //{ Driver Code Starts.
 
@@ -60,7 +34,8 @@ int main()
         for(i=0;i<n;i++)
         cin>>arr[i];
         vector<int> ans;
-        ans=find(arr,n,x);
+        Solution ob;
+        ans=ob.find(arr,n,x);
         cout<<ans[0]<<" "<<ans[1]<<endl;
     }
     return 0;
