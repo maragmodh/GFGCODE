@@ -10,9 +10,9 @@ class Solution{
     //Function to rotate an array by d elements in counter-clockwise direction. 
     void rotateArr(int arr[], int d, int n){
         d=d%n;
-        reverse(arr+0,arr+d);
+        reverse(arr,arr+d);
         reverse(arr+d,arr+n);
-        reverse(arr+0,arr+n);
+        reverse(arr,arr+n);
     }
 };
 
