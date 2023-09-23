@@ -12,26 +12,18 @@ class Solution {
     // Function to return the count of the number of elements in
     // the intersection of two arrays.
     int NumberofElementsInIntersection(int a[], int b[], int n, int m) {
-        // Your code goes here
-        set<int>s;
-         sort(a, a + n);
-         sort(b, b + m);
-         int i=0;
-         int j=0;
-         while(i<n && j<m)
-         {
-             if(a[i]==b[j])
-             {
-                s.insert(a[i]);
-                 i++;
-                 j++;
-             }
-             if(a[i]>b[j])
-                  j++;
-            if((a[i]<b[j]))
-                i++;
-         }
-         return s.size();
+        unordered_set<int>s;
+       for(int i=0;i<n;i++)
+           s.insert(a[i]);
+       
+       int count=0;
+       for(int i=0;i<m;i++){
+           int key=b[i];
+           if(s.find(key)!=s.end())
+               count++;
+               s.erase(b[i]);
+       }
+       return count;
     }
 };
 
