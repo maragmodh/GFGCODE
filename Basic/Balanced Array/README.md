@@ -1,4 +1,4 @@
-<h2><a href="https://practice.geeksforgeeks.org/problems/balanced-array07200720/1?page=3&difficulty[]=-1&status[]=solved&sortBy=submissions">Balanced Array</a></h2><h3>Difficulty Level : Basic</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given an array of even size <strong>N</strong>, task is to find minimum value that can be added to an element so that array become balanced. An array is balanced if the sum of the left half of the array elements is equal to the sum of right half. </span></p>
+<h2><a href="https://practice.geeksforgeeks.org/problems/balanced-array07200720/1?page=6&status[]=solved&category[]=Arrays&sortBy=submissions">Balanced Array</a></h2><h3>Difficulty Level : Basic</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given an array of even size <strong>N</strong>, task is to find minimum value that can be added to an element so that array become balanced. An array is balanced if the sum of the left half of the array elements is equal to the sum of right half. </span></p>
 
 <p><br>
 <span style="font-size:18px"><strong>Example 1:</strong></span></p>
