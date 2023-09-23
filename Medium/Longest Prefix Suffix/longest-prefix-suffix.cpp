@@ -11,20 +11,29 @@ using namespace std;
 
 class Solution{
   public:		
-	int lps(string s) {
-	    int i=0,j=1,k=1,cnt=0;
-	    int n = s.length();
-	    while(i<n-1 && j<n){
-	        if(s[i]==s[j])
-	            i++,j++,cnt++;
-	        else if(s[i]!=s[j]){
-	            i=0;k++,cnt=0;
-	            j=k;
-	        }
-	    }
-	    return cnt;
-	}
+    //KMP algorithm
+    int lps(string s) {
+	int i = 1, j = 0;  // Pointers for comparison and indexing
+    int lps[s.size()] = {0};  // LPS array to store the longest proper prefix which is also a suffix
+
+    while (i < s.size()){
+        if (s[i] == s[j]){  // Characters match, increment both pointers
+            lps[i] = j + 1;  // Set the LPS value at current index
+            i++;
+            j++;
+        }else{
+            if(j==0){
+                // lps[i] = 0;  // No matching prefix found, set LPS value as 0
+                i++;
+            }else
+                j = lps[j - 1];  // Jump j to the previous character's LPS value
+        }
+    }
+
+    return lps[s.size() - 1]; 
+    }// Return the LPS
 };
+
 
 //{ Driver Code Starts.
 
