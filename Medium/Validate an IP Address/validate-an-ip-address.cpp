@@ -10,28 +10,39 @@ You are required to complete this method */
 class Solution {
     public:
         int isValid(string s) {
-        int count=0;
-            string ans;
-            for(int i=0;i<s.length();i++){
-                if(s[i]!='.')ans+=s[i];
-                if(s[i]=='.')count++;
-                if(s[i]=='.' || i==s.length()-1){
-                    if(ans.length()>1 && ans[0]=='0')return 0;
-                    if(ans.length()==0 || ans.length()>3)return 0;
-                    if(int(ans[0])<'0' || int(ans[0])>'9')return 0;
-                    if(ans.length()==2)
-                        if(int(ans[1])<'0' || int(ans[1])>'9')return 0;
-                    if(ans.length()==3)
-                        if(int(ans[2])<'0' || int(ans[2])>'9')return 0;
-                    int num=stoi(ans);
-                    if(num<0 || num>255)
-                        return 0;
-                    ans="";
-                }
-            }
-            if(count!=3)return 0;
-            return 1;
-        }
+            int dot_count = 0;
+           int digit_count = 0;
+           
+           for(int i = 0; i < s.length(); i++)
+               if(s[i] == '.')
+                   dot_count++;
+           if(dot_count != 3)
+               return 0;
+           unordered_set<string> us;
+           for(int i = 0; i < 256; i++)
+               us.insert(to_string(i));
+           
+           string temp = "";
+           for(int i = 0; i < s.length(); i++){
+               if(s[i] != '.')
+                   temp = temp + s[i];
+               else
+               {
+                   if(us.find(temp) != us.end())
+                   {
+                       digit_count++; 
+                       temp = "";
+                   }
+               }
+           }
+            if(us.find(temp) != us.end())
+               digit_count++;
+           
+            if(digit_count == 4)
+               return 1;
+            else
+               return 0;
+    }
 };
 
 //{ Driver Code Starts.
