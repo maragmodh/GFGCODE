@@ -86,8 +86,19 @@ struct Node
 /*You are required to complete below method*/
 Node* deleteNode(Node *head,int x)
 {
-    if(!head)return NULL;
-  if(x==1)return head->next;
-  head->next = deleteNode(head->next,x-1);
-  return head;
+  // Base case: If the head is NULL, return NULL (empty list).
+    if (!head)
+        return NULL;
+
+    // If x is 1, it means we want to delete the current head node.
+    // In this case, we simply return the next node (head->next), effectively removing the current head.
+    if (x == 1)
+        return head->next;
+
+    // Recursive case: Move to the next node and decrement x by 1.
+    // Recursively call deleteNode on the rest of the list (head->next) with the updated x value.
+    head->next = deleteNode(head->next, x - 1);
+
+    // Return the modified head after deletion.
+    return head;
 }
