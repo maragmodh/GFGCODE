@@ -13,8 +13,6 @@ class Solution{
      int solve(int price[], int n,vector<int>&dp){
       if(n==0)
           return 0;
-    //   if(n<0)
-    //       return INT_MIN;
       if(dp[n]!=-1)
           return dp[n];
       int maxi=INT_MIN;
@@ -25,12 +23,13 @@ class Solution{
       
       return dp[n]= maxi;
   }
-    int cutRod(int price[], int n) {
+    int cutRod(int price[], int n){
         vector<int>dp(n+1,-1);
         int ans=solve(price,n,dp);
         return ans;
     }
 };
+
 
 
 //{ Driver Code Starts.
