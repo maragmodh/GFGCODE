@@ -45,6 +45,8 @@ int main()
 // } Driver Code Ends
 
 
+
+
 //Function to push an integer into the stack.
 
 /*
@@ -66,7 +68,7 @@ void MyStack :: push(int x)
     if(top!=1000)
     {
         top++;
-        arr[top] =x;
+        arr[top] =x ;
     }
 }
 
