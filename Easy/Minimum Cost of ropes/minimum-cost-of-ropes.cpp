@@ -13,7 +13,6 @@ class Solution
         // Your code here
         if(n==1)
             return 0;
-        // Priority queue to store elements in descending order
         priority_queue<long long,vector<long long>,greater<long long>>pq;
         for(int i=0;i<n;i++)    pq.push(arr[i]);
         long long ans=0;
@@ -28,6 +27,7 @@ class Solution
         return ans;
     }
 };
+
 
 
 //{ Driver Code Starts.
