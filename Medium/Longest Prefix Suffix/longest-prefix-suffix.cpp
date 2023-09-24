@@ -22,10 +22,9 @@ class Solution{
             i++;
             j++;
         }else{
-            if(j==0){
-                // lps[i] = 0;  // No matching prefix found, set LPS value as 0
-                i++;
-            }else
+            if(j==0)
+                i++; // No matching prefix found, set LPS value as 0
+            else
                 j = lps[j - 1];  // Jump j to the previous character's LPS value
         }
     }
