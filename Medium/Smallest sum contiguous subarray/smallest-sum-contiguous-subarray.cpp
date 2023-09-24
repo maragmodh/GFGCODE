@@ -13,7 +13,7 @@ class Solution{
   public:
   int smallestSumSubarray(vector<int>& a){
         int sum =0;
-        int mini = INT_MAX ;
+        int mini = a[0] ;
         for(int i = 0 ; i<a.size();i++){
           sum+=a[i];
           mini= min(sum,mini);
@@ -23,6 +23,7 @@ class Solution{
       return mini;
   }
 };
+
 
 
 
