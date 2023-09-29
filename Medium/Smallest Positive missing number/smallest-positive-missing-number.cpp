@@ -21,6 +21,7 @@ class Solution
 };
 
 
+
 //{ Driver Code Starts.
 
 int missingNumber(int arr[], int n);
