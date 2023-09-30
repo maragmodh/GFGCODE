@@ -12,23 +12,29 @@ class Solution{
     //Function to return length of longest subsequence of consecutive integers.
     int findLongestConseqSubseq(int arr[], int N)
     {
-      vector<int>v(100000,0);
-     int maxi=0,count=0;
-     for(int i=0;i<N;i++)
-        v[arr[i]] =1;
-     for(int i=0;i<100000;i++)
-     {
-         if(v[i]==1)
-             count++;
-         else
-         {
-             maxi=max(count,maxi);
-             count=0;
-         }
-     }
-     return maxi;
+      //Your code here
+      sort(arr,arr+N);
+      int first = arr[0];
+      int count = 1;
+      int maxcount = 1;
+      for(int i=1;i<N;i++){
+        if(arr[i]==first)
+            continue;
+        if(arr[i]==first+1){
+            count++;
+            first = arr[i];
+            maxcount = max(maxcount,count);
+        }
+        else{
+            first = arr[i];
+            count=1;
+        }
+      }
+        
+      return maxcount;
     }
 };
+
 
 //{ Driver Code Starts.
  
