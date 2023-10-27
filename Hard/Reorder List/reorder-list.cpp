@@ -35,44 +35,49 @@ struct Node
 
 class Solution{ 
 public:
-    Node* reverseLinkedList(Node* head) {
-        Node* prev = nullptr;
-        Node* current = head;
-        while (current) {
-            Node* next = current->next;
-            current->next = prev;
-            prev = current;
-            current = next;
-        }
-        return prev;
-    }
+    Node* reversell(Node* head){
+       Node* ptr1 = nullptr;
+       Node* ptr2 = nullptr;
+       Node* curr = head;
+
+       while(curr != nullptr){
+           ptr2 = curr->next;
+           curr->next = ptr1;
+           ptr1 = curr;
+           curr = ptr2;
+       }
+       head = ptr1;
+       return head;
+   }
+
     void reorderList(Node* head) {
-        if (!head || !head->next || !head->next->next) {
-            return;
-        }
-                // Step 1: Find the middle of the linked list
+        
         Node* slow = head;
         Node* fast = head;
-        while (fast->next && fast->next->next) {
-            slow = slow->next;
-            fast = fast->next->next;
-        }
-        // Step 2: Reverse the second half of the linked list
-        Node* second_half = reverseLinkedList(slow->next);
-        slow->next = nullptr;
 
-        // Step 3: Merge the first half and the reversed second half alternately
-        Node* current = head;
-        while (second_half) {
-            Node* temp1 = current->next;
-            Node* temp2 = second_half->next;
-            current->next = second_half;
-            second_half->next = temp1;
-            current = temp1;
-            second_half = temp2;
+        while(fast != NULL && fast->next != NULL){
+            fast = fast->next->next;
+            slow = slow->next;
         }
+
+         Node* temp = reversell(slow->next);
+         slow->next = nullptr;
+
+         Node* ptr1 = head;
+         Node* ptr2 = temp;
+
+         while(ptr1 != nullptr && ptr2 != nullptr){
+
+            Node* ptr3 = ptr1->next;
+            Node* ptr4 = ptr2->next;
+            ptr1->next = ptr2;
+            ptr2->next = ptr3;
+            ptr1 = ptr3;
+            ptr2 = ptr4;
+         }
     }
 };
+
 
 //{ Driver Code Starts.
 
